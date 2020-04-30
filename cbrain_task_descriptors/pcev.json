@@ -1,0 +1,68 @@
+{
+    "tool-version": "1.0.0", 
+    "name": "pcev", 
+    "author": "Greenwood Lab Montreal",
+    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]", 
+    "inputs": [
+        {
+            "description": "The name of the csv file corresponding to Y, the response matrix", 
+            "value-key": "[Y_DATA]", 
+            "type": "File", 
+            "list": false, 
+            "optional": false, 
+            "id": "y_data", 
+            "name": "Y file"
+        }, 
+        {
+            "description": "The covariates matrix", 
+            "value-key": "[X_DATA]", 
+            "type": "File", 
+            "list": false, 
+            "optional": false, 
+            "id": "x_data", 
+            "name": "X file"
+        }, 
+        {
+            "description": "The confounders matrix", 
+            "value-key": "[C_DATA]", 
+            "type": "File", 
+            "list": false, 
+            "optional": true, 
+            "id": "c_data", 
+            "name": "C file"
+        }, 
+        {
+            "description": "Output directory name.", 
+            "default-value": "pcev_output", 
+            "value-key": "[OUTPUT]", 
+            "type": "String", 
+            "list": false, 
+            "optional": false, 
+            "id": "outdir", 
+            "name": "Output directory"
+        }
+    ], 
+    "container-image": {
+        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0",
+        "index":"shub://",
+        "type":"singularity" 
+    }, 
+    "schema-version": "0.5", 
+    "output-files": [
+        {
+            "description": "A folder containing the output files", 
+            "list": false, 
+            "id": "folder_out", 
+            "optional": false, 
+            "path-template": "[OUTPUT]", 
+            "name": "Output folder"
+        }
+    ], 
+    "suggested-resources": {
+        "walltime-estimate": 10000
+    }, 
+    "description": "This is a pipeline to run a pcev analysis from the R package",
+    "custom": {
+        "cbrain:author": "Natacha Beck"
+    }
+}
