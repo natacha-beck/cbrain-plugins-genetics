@@ -1,0 +1,77 @@
+{
+    "tool-version": "1.0.0",
+    "inputs": [
+        {
+            "value-key": "[GEN_DATA]",
+            "type": "File",
+            "id": "gen_data",
+            "name": "Gen file",
+            "description": "Gen file",
+            "list": false,
+            "optional": false
+        },
+        {
+            "value-key": "[SAMPLE_DATA]",
+            "type": "File",
+            "id": "sample_data",
+            "name": "Sample file",
+            "description": "Sample file",
+            "list": false,
+            "optional": false
+        },
+        {
+            "value-key": "[OUTPUT]",
+            "type": "String",
+            "id": "outdir",
+            "name": "Output directory",
+            "description": "Output directory name",
+            "list": false,
+            "default-value": "eprs_output",
+            "optional": false
+        },
+        {
+            "value-key": "[TRACE_OUTPUT]",
+            "type": "String",
+            "id": "trace_file",
+            "name": "Trace output file",
+            "description": "Trace output file name",
+            "list": false,
+            "default-value": "trace_output",
+            "optional": false
+        }
+    ],
+    "command-line": "run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] [OUTPUT] > [TRACE_OUTPUT]",
+    "suggested-resources": {
+        "walltime-estimate": 10000
+    },
+    "schema-version": "0.5",
+    "author": "Greenwood Lab Montreal",
+    "container-image": {
+        "type": "singularity",
+        "index": "docker://",
+        "image": "local"
+    },
+    "name": "ePRS_5HTT",
+    "output-files": [
+        {
+            "name": "Output folder",
+            "path-template": "[OUTPUT]",
+            "id": "folder_out",
+            "description": "A folder containing the output files",
+            "list": false,
+            "optional": false
+        },
+        {
+            "name": "Trace output",
+            "path-template": "[TRACE_OUTPUT]",
+            "id": "trace_file",
+            "description": "Trace output file name",
+            "list": false,
+            "optional": false
+        }
+    ],
+    "description": "Run ePRS_5HTT script",
+    "custom": {
+        "cbrain:author": "Natacha Beck"
+    }
+}
