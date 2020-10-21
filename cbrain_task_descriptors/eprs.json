@@ -18,19 +18,9 @@
             "description": "Sample file",
             "list": false,
             "optional": false
-        },
-        {
-            "value-key": "[OUTPUT]",
-            "type": "String",
-            "id": "outdir",
-            "name": "Output directory",
-            "description": "Output directory name",
-            "list": false,
-            "default-value": "eprs_output",
-            "optional": false
         }
     ],
-    "command-line": "mkdir [OUTPUT]; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] [OUTPUT] > [OUTPUT]/trace.log",
+    "command-line": "OUTDIR=`pwd`/eprs_score; mkdir $OUTDIR || exit 1; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] $OUTDIR > $OUTDIR/trace.log",
     "suggested-resources": {
         "walltime-estimate": 10000
     },
@@ -45,7 +35,7 @@
     "output-files": [
         {
             "name": "Output folder",
-            "path-template": "[OUTPUT]",
+            "path-template": "eprs_score",
             "id": "folder_out",
             "description": "A folder containing the output files",
             "list": false,
