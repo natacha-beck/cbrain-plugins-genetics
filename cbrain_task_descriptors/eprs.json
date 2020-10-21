@@ -28,19 +28,9 @@
             "list": false,
             "default-value": "eprs_output",
             "optional": false
-        },
-        {
-            "value-key": "[TRACE_OUTPUT]",
-            "type": "String",
-            "id": "trace_file",
-            "name": "Trace output file",
-            "description": "Trace output file name",
-            "list": false,
-            "default-value": "trace_output",
-            "optional": false
         }
     ],
-    "command-line": "run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] [OUTPUT] > [TRACE_OUTPUT]",
+    "command-line": "mkdir [OUTPUT]; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] [OUTPUT] > [OUTPUT]/trace.log",
     "suggested-resources": {
         "walltime-estimate": 10000
     },
@@ -58,14 +48,6 @@
             "path-template": "[OUTPUT]",
             "id": "folder_out",
             "description": "A folder containing the output files",
-            "list": false,
-            "optional": false
-        },
-        {
-            "name": "Trace output",
-            "path-template": "[TRACE_OUTPUT]",
-            "id": "trace_file",
-            "description": "Trace output file name",
             "list": false,
             "optional": false
         }
