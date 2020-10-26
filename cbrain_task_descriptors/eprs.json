@@ -1,0 +1,49 @@
+{
+    "tool-version": "1.0.0",
+    "inputs": [
+        {
+            "value-key": "[GEN_DATA]",
+            "type": "File",
+            "id": "gen_data",
+            "name": "Gen file",
+            "description": "Gen file",
+            "list": false,
+            "optional": false
+        },
+        {
+            "value-key": "[SAMPLE_DATA]",
+            "type": "File",
+            "id": "sample_data",
+            "name": "Sample file",
+            "description": "Sample file",
+            "list": false,
+            "optional": false
+        }
+    ],
+    "command-line": "OUTDIR=`pwd`/eprs_score; mkdir -p $OUTDIR || exit 1; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] $OUTDIR > $OUTDIR/trace.log",
+    "suggested-resources": {
+        "walltime-estimate": 10000
+    },
+    "schema-version": "0.5",
+    "author": "Patricia Pelufo Silveira Lab",
+    "container-image": {
+        "type": "singularity",
+        "index": "docker://",
+        "image": "local"
+    },
+    "name": "ePRS_5HTT",
+    "output-files": [
+        {
+            "name": "Output folder",
+            "path-template": "eprs_score",
+            "id": "folder_out",
+            "description": "A folder containing the output files",
+            "list": false,
+            "optional": false
+        }
+    ],
+    "description": "Run ePRS_5HTT script",
+    "custom": {
+        "cbrain:author": "Natacha Beck"
+    }
+}
