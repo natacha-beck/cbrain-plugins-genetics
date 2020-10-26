@@ -20,7 +20,7 @@
             "optional": false
         }
     ],
-    "command-line": "OUTDIR=`pwd`/eprs_score; mkdir $OUTDIR || exit 1; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] $OUTDIR > $OUTDIR/trace.log",
+    "command-line": "OUTDIR=`pwd`/eprs_score; mkdir -p $OUTDIR || exit 1; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] $OUTDIR > $OUTDIR/trace.log",
     "suggested-resources": {
         "walltime-estimate": 10000
     },
