@@ -1,68 +1,72 @@
 {
-    "tool-version": "1.0.0", 
-    "name": "pcev", 
-    "author": "Greenwood Lab Montreal",
-    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]", 
     "inputs": [
         {
-            "description": "The name of the csv file corresponding to Y, the response matrix", 
-            "value-key": "[Y_DATA]", 
-            "type": "File", 
-            "list": false, 
-            "optional": false, 
-            "id": "y_data", 
-            "name": "Y file"
-        }, 
+            "type": "File",
+            "id": "y_data",
+            "list": false,
+            "name": "Y file",
+            "optional": false,
+            "value-key": "[Y_DATA]",
+            "description": "The name of the csv file corresponding to Y, the response matrix"
+        },
         {
-            "description": "The covariates matrix", 
-            "value-key": "[X_DATA]", 
-            "type": "File", 
-            "list": false, 
-            "optional": false, 
-            "id": "x_data", 
-            "name": "X file"
-        }, 
+            "type": "File",
+            "id": "x_data",
+            "list": false,
+            "name": "X file",
+            "optional": false,
+            "value-key": "[X_DATA]",
+            "description": "The covariates matrix"
+        },
         {
-            "description": "The confounders matrix", 
-            "value-key": "[C_DATA]", 
-            "type": "File", 
-            "list": false, 
-            "optional": true, 
-            "id": "c_data", 
-            "name": "C file"
-        }, 
+            "type": "File",
+            "id": "c_data",
+            "list": false,
+            "name": "C file",
+            "optional": true,
+            "value-key": "[C_DATA]",
+            "description": "The confounders matrix"
+        },
         {
-            "description": "Output directory name.", 
-            "default-value": "pcev_output", 
-            "value-key": "[OUTPUT]", 
-            "type": "String", 
-            "list": false, 
-            "optional": false, 
-            "id": "outdir", 
-            "name": "Output directory"
+            "type": "String",
+            "id": "outdir",
+            "list": false,
+            "name": "Output directory",
+            "default-value": "pcev_output",
+            "optional": false,
+            "value-key": "[OUTPUT]",
+            "description": "Output directory name."
         }
-    ], 
-    "container-image": {
-        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0",
-        "index":"shub://",
-        "type":"singularity" 
-    }, 
-    "schema-version": "0.5", 
+    ],
     "output-files": [
         {
-            "description": "A folder containing the output files", 
-            "list": false, 
-            "id": "folder_out", 
-            "optional": false, 
-            "path-template": "[OUTPUT]", 
-            "name": "Output folder"
+            "name": "Output folder",
+            "id": "folder_out",
+            "list": false,
+            "optional": false,
+            "path-template": "[OUTPUT]",
+            "description": "A folder containing the output files"
         }
-    ], 
-    "suggested-resources": {
-        "walltime-estimate": 10000
-    }, 
-    "description": "This is a pipeline to run a pcev analysis from the R package",
+    ],
+    "doi": "10.5281/zenodo.4288795",
+    "tool-version": "1.0.0",
     "custom": {
         "cbrain:author": "Natacha Beck"
-    }
+    },
+    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]",
+    "author": "Greenwood Lab Montreal",
+    "description": "This is a pipeline to run a pcev analysis from the R package",
+    "name": "pcev",
+    "container-image": {
+        "type": "singularity",
+        "index": "shub://",
+        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0"
+    },
+    "schema-version": "0.5",
+    "suggested-resources": {
+        "walltime-estimate": 10000
+    },
+    "online-platform-urls": [
+        "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=77"
+    ]
 }
