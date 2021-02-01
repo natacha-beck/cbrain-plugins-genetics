@@ -1,0 +1,53 @@
+{
+    "tool-version": "1.0.0",
+    "name": "ePRS_5HTT",
+    "container-image": {
+        "index": "docker://",
+        "image": "silveiralab/eprs_5htt",
+        "type": "singularity"
+    },
+    "author": "Patricia Pelufo Silveira Lab",
+    "online-platform-urls": [
+        "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=294"
+    ],
+    "inputs": [
+        {
+            "list": false,
+            "id": "gen_data",
+            "name": "Gen file",
+            "optional": false,
+            "type": "File",
+            "description": "Gen file",
+            "value-key": "[GEN_DATA]"
+        },
+        {
+            "list": false,
+            "id": "sample_data",
+            "name": "Sample file",
+            "optional": false,
+            "type": "File",
+            "description": "Sample file",
+            "value-key": "[SAMPLE_DATA]"
+        }
+    ],
+    "output-files": [
+        {
+            "list": false,
+            "id": "folder_out",
+            "path-template": "eprs_score",
+            "name": "Output folder",
+            "optional": false,
+            "description": "A folder containing the output files"
+        }
+    ],
+    "suggested-resources": {
+        "walltime-estimate": 10000
+    },
+    "doi": "10.5281/zenodo.4148091",
+    "command-line": "OUTDIR=$PWD/eprs_score; mkdir -p $OUTDIR || exit 1; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] $OUTDIR > $OUTDIR/trace.log",
+    "description": "Run ePRS_5HTT script",
+    "custom": {
+        "cbrain:author": "Natacha Beck"
+    },
+    "schema-version": "0.5"
+}
