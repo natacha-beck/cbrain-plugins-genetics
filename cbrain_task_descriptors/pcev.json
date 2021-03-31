@@ -1,72 +1,77 @@
 {
+    "author": "Greenwood Lab Montreal",
+    "name": "pcev",
+    "online-platform-urls": [
+        "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=77"
+    ],
     "inputs": [
         {
-            "type": "File",
-            "id": "y_data",
             "list": false,
-            "name": "Y file",
             "optional": false,
+            "name": "Y file",
+            "id": "y_data",
+            "type": "File",
             "value-key": "[Y_DATA]",
             "description": "The name of the csv file corresponding to Y, the response matrix"
         },
         {
-            "type": "File",
-            "id": "x_data",
             "list": false,
-            "name": "X file",
             "optional": false,
+            "name": "X file",
+            "id": "x_data",
+            "type": "File",
             "value-key": "[X_DATA]",
             "description": "The covariates matrix"
         },
         {
-            "type": "File",
-            "id": "c_data",
             "list": false,
-            "name": "C file",
             "optional": true,
+            "name": "C file",
+            "id": "c_data",
+            "type": "File",
             "value-key": "[C_DATA]",
             "description": "The confounders matrix"
         },
         {
-            "type": "String",
-            "id": "outdir",
             "list": false,
+            "optional": false,
             "name": "Output directory",
             "default-value": "pcev_output",
-            "optional": false,
+            "id": "outdir",
+            "type": "String",
             "value-key": "[OUTPUT]",
             "description": "Output directory name."
         }
     ],
+    "description": "This is a pipeline to run a pcev analysis from the R package",
+    "doi": "10.5281/zenodo.4652797",
+    "tool-version": "1.0.0",
     "output-files": [
         {
-            "name": "Output folder",
-            "id": "folder_out",
             "list": false,
             "optional": false,
             "path-template": "[OUTPUT]",
+            "id": "folder_out",
+            "name": "Output folder",
             "description": "A folder containing the output files"
         }
     ],
-    "doi": "10.5281/zenodo.4288795",
-    "tool-version": "1.0.0",
     "custom": {
         "cbrain:author": "Natacha Beck"
     },
-    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]",
-    "author": "Greenwood Lab Montreal",
-    "description": "This is a pipeline to run a pcev analysis from the R package",
-    "name": "pcev",
     "container-image": {
-        "type": "singularity",
         "index": "shub://",
+        "type": "singularity",
         "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0"
     },
-    "schema-version": "0.5",
+    "tags": {
+        "domain": [
+            "bioinformatics"
+        ]
+    },
     "suggested-resources": {
         "walltime-estimate": 10000
     },
-    "online-platform-urls": [
-        "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=77"
-    ]
+    "schema-version": "0.5",
+    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]"
 }
