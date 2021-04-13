@@ -1,77 +1,78 @@
 {
-    "author": "Greenwood Lab Montreal",
+    "description": "This is a pipeline to run a pcev analysis from the R package",
+    "tags": {
+        "domain": [
+            "bioinformatics",
+            "genetic"
+        ]
+    },
     "name": "pcev",
     "online-platform-urls": [
         "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=77"
     ],
-    "inputs": [
-        {
-            "list": false,
-            "optional": false,
-            "name": "Y file",
-            "id": "y_data",
-            "type": "File",
-            "value-key": "[Y_DATA]",
-            "description": "The name of the csv file corresponding to Y, the response matrix"
-        },
-        {
-            "list": false,
-            "optional": false,
-            "name": "X file",
-            "id": "x_data",
-            "type": "File",
-            "value-key": "[X_DATA]",
-            "description": "The covariates matrix"
-        },
-        {
-            "list": false,
-            "optional": true,
-            "name": "C file",
-            "id": "c_data",
-            "type": "File",
-            "value-key": "[C_DATA]",
-            "description": "The confounders matrix"
-        },
-        {
-            "list": false,
-            "optional": false,
-            "name": "Output directory",
-            "default-value": "pcev_output",
-            "id": "outdir",
-            "type": "String",
-            "value-key": "[OUTPUT]",
-            "description": "Output directory name."
-        }
-    ],
-    "description": "This is a pipeline to run a pcev analysis from the R package",
-    "doi": "10.5281/zenodo.4652797",
+    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]",
+    "doi": "10.5281/zenodo.4685107",
     "tool-version": "1.0.0",
-    "output-files": [
-        {
-            "list": false,
-            "optional": false,
-            "path-template": "[OUTPUT]",
-            "id": "folder_out",
-            "name": "Output folder",
-            "description": "A folder containing the output files"
-        }
-    ],
     "custom": {
         "cbrain:author": "Natacha Beck"
     },
+    "inputs": [
+        {
+            "description": "The name of the csv file corresponding to Y, the response matrix",
+            "id": "y_data",
+            "name": "Y file",
+            "list": false,
+            "optional": false,
+            "type": "File",
+            "value-key": "[Y_DATA]"
+        },
+        {
+            "description": "The covariates matrix",
+            "id": "x_data",
+            "name": "X file",
+            "list": false,
+            "optional": false,
+            "type": "File",
+            "value-key": "[X_DATA]"
+        },
+        {
+            "description": "The confounders matrix",
+            "id": "c_data",
+            "name": "C file",
+            "list": false,
+            "optional": true,
+            "type": "File",
+            "value-key": "[C_DATA]"
+        },
+        {
+            "description": "Output directory name.",
+            "id": "outdir",
+            "name": "Output directory",
+            "list": false,
+            "optional": false,
+            "type": "String",
+            "value-key": "[OUTPUT]",
+            "default-value": "pcev_output"
+        }
+    ],
+    "schema-version": "0.5",
+    "author": "Greenwood Lab Montreal",
     "container-image": {
-        "index": "shub://",
         "type": "singularity",
-        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0"
-    },
-    "tags": {
-        "domain": [
-            "bioinformatics"
-        ]
+        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0",
+        "index": "shub://"
     },
     "suggested-resources": {
         "walltime-estimate": 10000
     },
-    "schema-version": "0.5",
-    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]"
+    "output-files": [
+        {
+            "description": "A folder containing the output files",
+            "id": "folder_out",
+            "path-template": "[OUTPUT]",
+            "name": "Output folder",
+            "list": false,
+            "optional": false
+        }
+    ]
 }

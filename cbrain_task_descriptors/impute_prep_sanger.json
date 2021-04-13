@@ -1,99 +1,100 @@
 {
+    "author": "Greenwood Lab Montreal",
     "command-line": "cp /imputePrepSanger/*.awk . || exit 20 ; mkdir -p fix_data || exit 21 ; ln -f -s /fix_data/* fix_data || exit 21 ; test -f [VAR_DATA]/*.ped || ( echo Missing PED file && exit 22 ) ; test -f [VAR_DATA]/*.strand || ( echo Missing STRAND file && exit 23 ) ; pl=$(basename [VAR_DATA]/*.ped .ped) ; st=$(basename [VAR_DATA]/*.strand .strand) ; bash imputePrep_script.sh ${pl} ${st} [MIND] [GENO] [MAF] [HWE] [VAR_DATA] fix_data [OUTPUT]",
-    "schema-version": "0.5",
-    "custom": {
-        "cbrain:author": "Natacha Beck"
+    "suggested-resources": {
+        "walltime-estimate": 10000
     },
     "container-image": {
         "index": "shub://",
-        "type": "singularity",
-        "image": "GreenwoodLab/imputePrepSanger:imputeprepsanger_v1.0"
+        "image": "GreenwoodLab/imputePrepSanger:imputeprepsanger_v1.0",
+        "type": "singularity"
     },
-    "inputs": [
-        {
-            "default-value": "0.1",
-            "description": "If in an individual the proportion of genotype missing is higher than this parameter, that individual is excluded from the dataset.",
-            "optional": false,
-            "type": "Number",
-            "value-key": "[MIND]",
-            "list": false,
-            "id": "mind",
-            "name": "Maximum per person missing"
-        },
-        {
-            "default-value": "0.1",
-            "description": "If for a SNP the proportion of missing genotype is higher than this parameter, that SNP is excluded from the dataset.",
-            "optional": false,
-            "type": "Number",
-            "value-key": "[GENO]",
-            "list": false,
-            "id": "geno",
-            "name": "Maximum per SNP missing"
-        },
-        {
-            "default-value": "0.05",
-            "description": "If the frequency of the minor allele for a SNP is lower than this parameter, this SNP is excluded from the dataset.",
-            "optional": false,
-            "type": "Number",
-            "value-key": "[MAF]",
-            "list": false,
-            "id": "maf",
-            "name": "Minor allele frequency"
-        },
-        {
-            "default-value": "5e-8",
-            "description": "If, for a SNP, the p-value obtained from a test of Hardy-Weinberg equilibrium is lower than this parameter, the equilibrium hypothesis is rejected and the SNP is excluded from the dataset. ",
-            "optional": false,
-            "type": "Number",
-            "value-key": "[HWE]",
-            "list": false,
-            "id": "hwe",
-            "name": "Hardy-Weinberg equilibrium"
-        },
-        {
-            "description": "Repository that contains variable inputs as the *.ped, *.map file, and the *.strand files. The strand file needs to match your genotyping chip, and build 37.",
-            "optional": false,
-            "type": "File",
-            "value-key": "[VAR_DATA]",
-            "list": false,
-            "id": "var_data",
-            "name": "Repository with variable inputs"
-        },
-        {
-            "default-value": "imputePrepSanger_output",
-            "description": "Output directory name.",
-            "optional": false,
-            "type": "String",
-            "value-key": "[OUTPUT]",
-            "list": false,
-            "id": "outdir",
-            "name": "Output directory"
-        }
-    ],
     "online-platform-urls": [
         "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=72"
     ],
+    "custom": {
+        "cbrain:author": "Natacha Beck"
+    },
+    "doi": "10.5281/zenodo.4685112",
     "name": "imputePrepSanger",
+    "inputs": [
+        {
+            "id": "mind",
+            "name": "Maximum per person missing",
+            "list": false,
+            "default-value": "0.1",
+            "type": "Number",
+            "description": "If in an individual the proportion of genotype missing is higher than this parameter, that individual is excluded from the dataset.",
+            "value-key": "[MIND]",
+            "optional": false
+        },
+        {
+            "id": "geno",
+            "name": "Maximum per SNP missing",
+            "list": false,
+            "default-value": "0.1",
+            "type": "Number",
+            "description": "If for a SNP the proportion of missing genotype is higher than this parameter, that SNP is excluded from the dataset.",
+            "value-key": "[GENO]",
+            "optional": false
+        },
+        {
+            "id": "maf",
+            "name": "Minor allele frequency",
+            "list": false,
+            "default-value": "0.05",
+            "type": "Number",
+            "description": "If the frequency of the minor allele for a SNP is lower than this parameter, this SNP is excluded from the dataset.",
+            "value-key": "[MAF]",
+            "optional": false
+        },
+        {
+            "id": "hwe",
+            "name": "Hardy-Weinberg equilibrium",
+            "list": false,
+            "default-value": "5e-8",
+            "type": "Number",
+            "description": "If, for a SNP, the p-value obtained from a test of Hardy-Weinberg equilibrium is lower than this parameter, the equilibrium hypothesis is rejected and the SNP is excluded from the dataset. ",
+            "value-key": "[HWE]",
+            "optional": false
+        },
+        {
+            "id": "var_data",
+            "name": "Repository with variable inputs",
+            "list": false,
+            "type": "File",
+            "description": "Repository that contains variable inputs as the *.ped, *.map file, and the *.strand files. The strand file needs to match your genotyping chip, and build 37.",
+            "value-key": "[VAR_DATA]",
+            "optional": false
+        },
+        {
+            "id": "outdir",
+            "name": "Output directory",
+            "list": false,
+            "default-value": "imputePrepSanger_output",
+            "type": "String",
+            "description": "Output directory name.",
+            "value-key": "[OUTPUT]",
+            "optional": false
+        }
+    ],
+    "output-files": [
+        {
+            "id": "folder_out",
+            "list": false,
+            "description": "A folder containing the output files",
+            "path-template": "[OUTPUT]",
+            "name": "Output folder",
+            "optional": false
+        }
+    ],
     "tool-version": "1.0.0",
     "description": "This pipeline takes genotype files, and adjusts the strand, the positions, the reference alleles, performs quality control steps and output a vcf file that satisfies the requirement for submittion to the Sanger Imputation Service (https://imputation.sanger.ac.uk/) for imputation using the Haplotype Reference Consortim reference panel. The strand files for most genotyping chip can be found on Will Rayner's website (http://www.well.ox.ac.uk/~wrayner/strand/).",
     "tags": {
         "domain": [
-            "bioinformatics"
+            "bioinformatics",
+            "genetic"
         ]
     },
-    "output-files": [
-        {
-            "description": "A folder containing the output files",
-            "optional": false,
-            "path-template": "[OUTPUT]",
-            "list": false,
-            "id": "folder_out",
-            "name": "Output folder"
-        }
-    ],
-    "suggested-resources": {
-        "walltime-estimate": 10000
-    },
-    "doi": "10.5281/zenodo.4652794",
-    "author": "Greenwood Lab Montreal"
+    "schema-version": "0.5"
 }
