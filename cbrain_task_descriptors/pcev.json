@@ -1,71 +1,77 @@
 {
-    "inputs": [
-        {
-            "type": "File",
-            "id": "y_data",
-            "list": false,
-            "name": "Y file",
-            "optional": false,
-            "value-key": "[Y_DATA]",
-            "description": "The name of the csv file corresponding to Y, the response matrix"
-        },
-        {
-            "type": "File",
-            "id": "x_data",
-            "list": false,
-            "name": "X file",
-            "optional": false,
-            "value-key": "[X_DATA]",
-            "description": "The covariates matrix"
-        },
-        {
-            "type": "File",
-            "id": "c_data",
-            "list": false,
-            "name": "C file",
-            "optional": true,
-            "value-key": "[C_DATA]",
-            "description": "The confounders matrix"
-        },
-        {
-            "type": "String",
-            "id": "outdir",
-            "list": false,
-            "name": "Output directory",
-            "default-value": "pcev_output",
-            "optional": false,
-            "value-key": "[OUTPUT]",
-            "description": "Output directory name."
-        }
-    ],
-    "output-files": [
-        {
-            "name": "Output folder",
-            "id": "folder_out",
-            "list": false,
-            "optional": false,
-            "path-template": "[OUTPUT]",
-            "description": "A folder containing the output files"
-        }
-    ],
-    "doi": "10.5281/zenodo.4288795",
-    "tool-version": "1.0.0",
-    "custom": {
-        "cbrain:author": "Natacha Beck"
-    },
     "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]",
-    "author": "Greenwood Lab Montreal",
-    "description": "This is a pipeline to run a pcev analysis from the R package",
-    "name": "pcev",
-    "container-image": {
-        "type": "singularity",
-        "index": "shub://",
-        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0"
-    },
-    "schema-version": "0.5",
+    "tool-version": "1.0.0",
     "suggested-resources": {
         "walltime-estimate": 10000
     },
+    "output-files": [
+        {
+            "optional": false,
+            "id": "folder_out",
+            "path-template": "[OUTPUT]",
+            "description": "A folder containing the output files",
+            "list": false,
+            "name": "Output folder"
+        }
+    ],
+    "doi": "10.5281/zenodo.4687114",
+    "description": "This is a pipeline to run a pcev analysis from the R package",
+    "container-image": {
+        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0",
+        "index": "shub://",
+        "type": "singularity"
+    },
+    "name": "pcev",
+    "custom": {
+        "cbrain:author": "Natacha Beck"
+    },
+    "inputs": [
+        {
+            "optional": false,
+            "id": "y_data",
+            "value-key": "[Y_DATA]",
+            "description": "The name of the csv file corresponding to Y, the response matrix",
+            "list": false,
+            "type": "File",
+            "name": "Y file"
+        },
+        {
+            "optional": false,
+            "id": "x_data",
+            "value-key": "[X_DATA]",
+            "description": "The covariates matrix",
+            "list": false,
+            "type": "File",
+            "name": "X file"
+        },
+        {
+            "optional": true,
+            "id": "c_data",
+            "value-key": "[C_DATA]",
+            "description": "The confounders matrix",
+            "list": false,
+            "type": "File",
+            "name": "C file"
+        },
+        {
+            "optional": false,
+            "id": "outdir",
+            "value-key": "[OUTPUT]",
+            "default-value": "pcev_output",
+            "list": false,
+            "type": "String",
+            "description": "Output directory name.",
+            "name": "Output directory"
+        }
+    ],
+    "schema-version": "0.5",
+    "tags": {
+        "domain": [
+            "bioinformatics",
+            "genetic"
+        ]
+    },
+    "author": "Greenwood Lab Montreal",
     "online-platform-urls": [
         "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=77"
     ]

@@ -1,53 +1,59 @@
 {
-    "tool-version": "1.0.0",
-    "name": "ePRS_5HTT",
+    "doi": "10.5281/zenodo.4685127",
     "container-image": {
+        "type": "singularity",
         "index": "docker://",
-        "image": "silveiralab/eprs_5htt",
-        "type": "singularity"
+        "image": "silveiralab/eprs_5htt"
     },
-    "author": "Patricia Pelufo Silveira Lab",
     "online-platform-urls": [
         "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=294"
     ],
     "inputs": [
         {
+            "description": "Gen file",
+            "type": "File",
             "list": false,
+            "value-key": "[GEN_DATA]",
             "id": "gen_data",
             "name": "Gen file",
-            "optional": false,
-            "type": "File",
-            "description": "Gen file",
-            "value-key": "[GEN_DATA]"
+            "optional": false
         },
         {
+            "description": "Sample file",
+            "type": "File",
             "list": false,
+            "value-key": "[SAMPLE_DATA]",
             "id": "sample_data",
             "name": "Sample file",
-            "optional": false,
-            "type": "File",
-            "description": "Sample file",
-            "value-key": "[SAMPLE_DATA]"
+            "optional": false
         }
     ],
-    "output-files": [
-        {
-            "list": false,
-            "id": "folder_out",
-            "path-template": "eprs_score",
-            "name": "Output folder",
-            "optional": false,
-            "description": "A folder containing the output files"
-        }
-    ],
+    "description": "Run ePRS_5HTT script, for example see https://github.com/SilveiraLab/ePRS/tree/master/example",
+    "tags": {
+        "domain": [
+            "bioinformatics",
+            "genetic"
+        ]
+    },
     "suggested-resources": {
         "walltime-estimate": 10000
     },
-    "doi": "10.5281/zenodo.4148091",
+    "name": "ePRS_5HTT",
     "command-line": "OUTDIR=$PWD/eprs_score; mkdir -p $OUTDIR || exit 1; run_ePRS_5HTT.sh [GEN_DATA] [SAMPLE_DATA] $OUTDIR > $OUTDIR/trace.log",
-    "description": "Run ePRS_5HTT script",
     "custom": {
         "cbrain:author": "Natacha Beck"
     },
-    "schema-version": "0.5"
+    "author": "Patricia Pelufo Silveira Lab",
+    "schema-version": "0.5",
+    "output-files": [
+        {
+            "path-template": "eprs_score",
+            "description": "A folder containing the output files",
+            "list": false,
+            "id": "folder_out",
+            "name": "Output folder",
+            "optional": false
+        }
+    ],
+    "tool-version": "1.0.0"
 }
