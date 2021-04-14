@@ -1,68 +1,78 @@
 {
-    "tool-version": "1.0.0", 
-    "name": "pcev", 
-    "author": "Greenwood Lab Montreal",
-    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]", 
-    "inputs": [
-        {
-            "description": "The name of the csv file corresponding to Y, the response matrix", 
-            "value-key": "[Y_DATA]", 
-            "type": "File", 
-            "list": false, 
-            "optional": false, 
-            "id": "y_data", 
-            "name": "Y file"
-        }, 
-        {
-            "description": "The covariates matrix", 
-            "value-key": "[X_DATA]", 
-            "type": "File", 
-            "list": false, 
-            "optional": false, 
-            "id": "x_data", 
-            "name": "X file"
-        }, 
-        {
-            "description": "The confounders matrix", 
-            "value-key": "[C_DATA]", 
-            "type": "File", 
-            "list": false, 
-            "optional": true, 
-            "id": "c_data", 
-            "name": "C file"
-        }, 
-        {
-            "description": "Output directory name.", 
-            "default-value": "pcev_output", 
-            "value-key": "[OUTPUT]", 
-            "type": "String", 
-            "list": false, 
-            "optional": false, 
-            "id": "outdir", 
-            "name": "Output directory"
-        }
-    ], 
-    "container-image": {
-        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0",
-        "index":"shub://",
-        "type":"singularity" 
-    }, 
-    "schema-version": "0.5", 
-    "output-files": [
-        {
-            "description": "A folder containing the output files", 
-            "list": false, 
-            "id": "folder_out", 
-            "optional": false, 
-            "path-template": "[OUTPUT]", 
-            "name": "Output folder"
-        }
-    ], 
+    "command-line": "bash run_pcevCBRAIN.sh [OUTPUT] [Y_DATA] [X_DATA] [C_DATA]",
+    "tool-version": "1.0.0",
     "suggested-resources": {
         "walltime-estimate": 10000
-    }, 
+    },
+    "output-files": [
+        {
+            "optional": false,
+            "id": "folder_out",
+            "path-template": "[OUTPUT]",
+            "description": "A folder containing the output files",
+            "list": false,
+            "name": "Output folder"
+        }
+    ],
+    "doi": "10.5281/zenodo.4687114",
     "description": "This is a pipeline to run a pcev analysis from the R package",
+    "container-image": {
+        "image": "GreenwoodLab/pcev_pipelineCBRAIN:pcev_v1.0",
+        "index": "shub://",
+        "type": "singularity"
+    },
+    "name": "pcev",
     "custom": {
         "cbrain:author": "Natacha Beck"
-    }
+    },
+    "inputs": [
+        {
+            "optional": false,
+            "id": "y_data",
+            "value-key": "[Y_DATA]",
+            "description": "The name of the csv file corresponding to Y, the response matrix",
+            "list": false,
+            "type": "File",
+            "name": "Y file"
+        },
+        {
+            "optional": false,
+            "id": "x_data",
+            "value-key": "[X_DATA]",
+            "description": "The covariates matrix",
+            "list": false,
+            "type": "File",
+            "name": "X file"
+        },
+        {
+            "optional": true,
+            "id": "c_data",
+            "value-key": "[C_DATA]",
+            "description": "The confounders matrix",
+            "list": false,
+            "type": "File",
+            "name": "C file"
+        },
+        {
+            "optional": false,
+            "id": "outdir",
+            "value-key": "[OUTPUT]",
+            "default-value": "pcev_output",
+            "list": false,
+            "type": "String",
+            "description": "Output directory name.",
+            "name": "Output directory"
+        }
+    ],
+    "schema-version": "0.5",
+    "tags": {
+        "domain": [
+            "bioinformatics",
+            "genetic"
+        ]
+    },
+    "author": "Greenwood Lab Montreal",
+    "online-platform-urls": [
+        "https://portal.cbrain.mcgill.ca/userfiles?prepare_tool_id=77"
+    ]
 }
