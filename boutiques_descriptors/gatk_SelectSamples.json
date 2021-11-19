@@ -1,0 +1,50 @@
+{
+    "name": "GATK_SelectVariants-samples_selection",
+    "description": "Select a subset of variants or samples from a VCF file",
+    "tool-version": "4.2.3.0",
+    "schema-version": "0.5",
+    "command-line": "gatk SelectVariants [INPUT_FILE] [SAMPLES] [OUTPUTFILE]",
+    "container-image": {
+        "image": "broadinstitute/gatk:4.2.3.0",
+        "index": "docker://",
+        "type": "singularity"
+    },
+    "inputs": [
+        {
+            "id": "variant_call_set",
+            "name": "Variant call set",
+            "description": "A variant call set in VCF format from which a subset can be selected.",
+            "command-line-flag": "-V",
+            "optional": false,
+            "type": "File",
+            "value-key": "[INPUT_FILE]"
+        },
+        {
+            "id": "samples",
+            "name": "Samples",
+            "description": "A list of samples to extract from the variant file.",
+            "optional": false,
+            "type": "String",
+            "list": true,
+            "list-separator": " -sn ",
+            "min-list-entries": 1,
+            "command-line-flag": "-sn",
+            "value-key": "[SAMPLES]"
+        }
+    ],
+    "output-files": [
+        {
+            "id": "outfile",
+            "name": "The output file",
+            "path-template": "selected_samples.vcf",
+            "optional": false,
+            "command-line-flag": "-O",
+            "value-key": "[OUTPUTFILE]"
+        }
+    ],
+    "suggested-resources": {
+        "cpu-cores": 1,
+        "ram": 1,
+        "walltime-estimate": 60
+    }
+}
