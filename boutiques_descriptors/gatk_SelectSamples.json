@@ -1,11 +1,11 @@
 {
     "name": "GATK_SelectVariants-samples_selection",
     "description": "Select a subset of variants or samples from a VCF file",
-    "tool-version": "4.2.3.0",
+    "tool-version": "4.2.4.0",
     "schema-version": "0.5",
     "command-line": "gatk SelectVariants [INPUT_FILE] [SAMPLES] [OUTPUTFILE]",
     "container-image": {
-        "image": "broadinstitute/gatk:4.2.3.0",
+        "image": "broadinstitute/gatk:4.2.4.0",
         "index": "docker://",
         "type": "singularity"
     },
