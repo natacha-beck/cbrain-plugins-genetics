@@ -1,0 +1,267 @@
+{
+    "name":           "mfannot",
+    "tool-version":   "1.36",
+    "schema-version": "0.5",
+    "author":         "Pierre Rioux and Natacha Beck, Franz Bernd Lang Lab (https://github.com/BFL-lab)",
+    "description":    "Automated annotation for mitochondrial and plastid genomes",
+    "container-image": {
+      "index": "docker://",
+      "image": "nbeck/mfannot:latest",
+      "type": "singularity"
+    },
+    "command-line": "CWD=${PWD}; INPUT=$(echo [INPUT] | cut -f 1 -d '.'); mkdir [OUTPUT_DIR];  cp [INPUT] [OUTPUT_DIR]/${INPUT}; cd [OUTPUT_DIR]; mfannot [BLAST] [EL] [GENETIC] [INSERTION] [LIGHT] [MATRIX] [MAXIS] [MINES] [MINIS] [MINORFLEN] [OVERLAPCUT] [ORFOVORF] [ORFOVGENE] [PARTIAL] [LVLINTRON] [LVLMOT] [SQN] [TBL] ${INPUT}; cd ${CWD}",
+    "inputs": [
+        {
+            "id": "fasta",
+            "name": "Input file",
+            "description": "Input file (FASTA format).",
+            "optional": false,
+            "type": "File",
+            "value-key": "[INPUT]"
+        },
+        {
+            "id": "genetic",
+            "name": "Genetic code",
+            "description": "1 =>  Standard (default)\n2 =>  Vertebrate Mitochondrial                  AGA=Ter(*),AGG=Ter(*),AUA=Met(M),UGA=Trp(W)\n3 =>  Yeast Mitochondrial                       ATA=Met(M),CTN=Thr(T),TGA=Trp(W)\n4 =>  Mold Mitochondrial                        TGA=Trp(W)\n5 =>  Invertebrate Mitochondrial                AGA=Ser(S),AGG=Ser(S),ATA=Met(M),TGA=Trp(W)\n6 =>  Ciliate Dasycladacean Hexamita Nuclear    TAA=Gln(Q),TAG=Gln(Q)\n9 =>  Echinoderm Flatworm Mitochondrial         AAA=Asn(N),AGA=Ser(S),AGG=Ser(S),TGA=Trp(W)\n10 => Euplotid Nuclear                          TGA=Cys(C)\n11 => Bacterial and Plant Plastid               \n12 => Alternative Yeast Nuclear                 CTG=Ser(S)\n13 => Ascidian Mitochondrial                    AGA=Gly(G),AGG=Gly(G),ATA=Met(M),TGA=Trp(W)\n14 => Alternative Flatworm Mitochondrial        AAA=Asn(N),AGA=Ser(S),AGG=Ser(S),TAA=Tyr(Y),TGA=Trp(W)\n15 => Blepharisma Macronuclear                  TAG=Gln(Q)\n16 => Chlorophycean Mitochondrial               TAG=Leu(L)\n21 => Trematode Mitochondrial                   TGA=Trp(W),ATA=Met(M),AGA=Ser(S),AGG=Ser(S)\n22 => Scenedesmus Obliquus Mitochondrial        TCA=Stop(*),TAG=Leu(L)\n23 => Thraustochytrium Mitochondrial            TTA=Stop(*)",
+            "optional": true,
+            "value-choices": [
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "9",
+                "10",
+                "11",
+                "12",
+                "13",
+                "14",
+                "15",
+                "16",
+                "21",
+                "22",
+                "23"
+            ],
+            "command-line-flag": "-g",
+            "type": "String",
+            "value-key": "[GENETIC]"
+        },
+        {
+            "id": "sqn",
+            "name": "Produce Sequin format",
+            "optional": true,
+            "command-line-flag": "--sqn",
+            "type": "Flag",
+            "value-key": "[SQN]"
+        }, 
+        {
+            "id": "tbl",
+            "name": "Generate a tbl Sequin file",
+            "optional": true,
+            "command-line-flag": "--tbl",
+            "type": "Flag",
+            "value-key": "[TBL]"
+        }, 
+        {
+          "id": "partial",
+          "name": "Partial annotation",
+          "description": "Must be used when the genome his known to be partial or incomplete;\nthis will cause mfannot to only run a subset of all its built-in analysis.",
+          "optional": true,
+          "command-line-flag": "--partial",
+          "type": "Flag",
+          "value-key": "[PARTIAL]"
+        },
+        {
+            "id": "blast",
+            "name": "Blast e-value cutoff",
+            "description": "Allows the user to set the minimum signifiant e-value for ORF threshold.",
+            "optional": true,
+            "command-line-flag": "--blast",
+            "type": "String",
+            "value-key": "[BLAST]"
+        },
+        {
+            "id": "emptyorflen",
+            "name": "Empty ORF minimum length",
+            "description": "Allows the users to supply the cutoff value for an\nORF (in nuceotide) they must be multiple of 3, which is found\nnot to correspond to a gene.\nIt will instead appear in the Masterfile as ncorf (non\ncorresponding ORF).",
+            "optional": true,
+            "command-line-flag": "--emptyorflen",
+            "type": "String",
+            "value-key": "[EL]"
+        },
+        {
+          "id": "insertion",
+          "name": "Insertion",
+          "description": "Allows the user to change the length of insertion in order to report them.",
+          "optional": true,
+          "command-line-flag": "--insertion",
+          "type": "Number",
+          "value-key": "[INSERTION]"
+        },
+        {
+          "id": "light",
+          "name": "Endonuclease search",
+          "description": "Don't perform endonuclease search, and don't search for all gene by HMM.",
+          "optional": true,
+          "command-line-flag": "--light",
+          "type": "Flag",
+          "value-key": "[LIGHT]"
+        },
+        {
+          "id": "matrix",
+          "name": "Matrix for BLAST",
+          "description": "Allows the user to choose which alignment matrix is used during the blast.",
+          "optional": true,
+          "command-line-flag": "--matrix",
+          "type": "String",
+          "value-choices": [
+              "BLOSUM45",
+              "BLOSUM62",
+              "PAM30",
+              "PAM70"
+          ],
+          "value-key": "[MATRIX]"
+        },
+        {
+          "id": "maxintronsize",
+          "name": "Maximum intron size",
+          "description": "Allows the user to modify the default maximum introns\nsize (in nucleotides). During annotation, ORFs are groupeds\ntogether to form a hypothetical protein. When this size is bigger,s\nthe gap can not be considered as an intron and the multiple ORFss\nform multiple hypothetical proteins.",
+          "optional": true,
+          "command-line-flag": "--maxintronsize",
+          "type": "Number",
+          "value-key": "[MAXIS]"
+        },
+        {
+          "id": "minexonsize",
+          "name": "Minimum exon size",
+          "description": "Allows the user to modify the default minimum exon\nsize (in nucleotides) that mfannot uses during internal structure\nprediction. This value should be an integer.",
+          "optional": true,
+          "command-line-flag": "--minexonsize",
+          "type": "Number",
+          "value-key": "[MINES]"
+        },
+        {
+          "id": "minintronsize",
+          "name": "Minimum intron size",
+          "description": "Allows the user to modify the default minimum intron\nsize (in nucleotides) that mfannot uses during internal structure\nprediction. This value should be an integer.",
+          "optional": true,
+          "command-line-flag": "--minintronsize",
+          "type": "Number",
+          "value-key": "[MINIS]"
+        },
+        {
+          "id": "minorflen",
+          "name": "Minimum ORF length",
+          "description": "Allows the user to choose the size of the minumum ORFs\n(in amino acids) that are produced using Flip. This value must be\nan integer.",
+          "optional": true,
+          "command-line-flag": "--minintronsize",
+          "type": "Number",
+          "value-key": "[MINORFLEN]"
+        },
+        {
+          "id": "overlapcut",
+          "name": "Minumum ORF length",
+          "description": "Cutoff that represents the permitted overlapping\nproportion of a non-corresponding ORF that overlaps a predicted\ngene in nucleotide or on other non-corresponding ORF, value in \npercent.",
+          "optional": true,
+          "command-line-flag": "--overlapcut",
+          "type": "Number",
+          "minimum": 0, 
+          "maximum": 100, 
+          "value-key": "[OVERLAPCUT]"
+        },
+        {
+          "id": "orfOVorf",
+          "name": "Overlap between ORFs",
+          "description": "Special case, 2 orfs is overlapping but both of them make under\n Xaa of length, annotate the 2 ORFs.",
+          "optional": true,
+          "command-line-flag": "--orfOVorf",
+          "type": "Number",
+          "value-key": "[ORFOVORF]"
+        },
+        {
+          "id": "orfOVgene",
+          "name": "ORF overlap gene",
+          "description": "Special case, 1 orf is overlapping a gene and make Xaa of length\nannotate this one.",      
+          "optional": true,
+          "command-line-flag": "--orfOVgene",
+          "type": "Number",
+          "value-key": "[ORFOVGENE]"
+        },
+        {
+            "id": "lvlintron",
+            "name": "Level for introns identification",
+            "description": "1 : run RNASpinner in all intragenic introns and check for rnl and rns introns.\nDefault 2 : run RNASpinner on whole genome.",
+            "optional": true,
+            "command-line-flag": "--lvlintron",
+            "value-choices": [
+                "1",
+                "2"
+            ],
+            "type": "String",
+            "value-key": "[LVLINTRON]"
+        },
+        {
+            "id": "lvlmot",
+            "name": "Level of motif identification",
+            "description": "Default 0 : run mfannot without motifs identification.\nIf is 1   : run only motifs identification.\nIf is 2   : run mfannot with motifs identification'.",
+            "optional": true,
+            "command-line-flag": "--lvlmot",
+            "type": "String",
+            "value-choices": [
+                "0",
+                "1",
+                "2"
+            ],
+            "value-key": "[LVLMOT]"
+        }
+        
+    ],
+    "output-files": [
+        {
+            "id": "outfile",
+            "name": "The output directory",
+            "path-template": "mfannot_res",
+            "optional": false,
+            "value-key": "[OUTPUT_DIR]"
+        }
+    ],
+    "groups": [
+      {
+          "id": "advanced",
+          "members": [
+              "blast",
+              "emptyorflen",
+              "insertion",
+              "light",
+              "matrix",
+              "maxintronsize",
+              "minexonsize",
+              "minintronsize",
+              "minorflen",
+              "overlapcut",
+              "orfOVorf",
+              "orfOVgene",
+              "lvlintron",
+              "lvlmot"
+          ],
+          "name": "Advanced options."
+      }
+    ],
+    "tags": {
+        "domain": [
+            "boutiques",
+            "genetic"
+        ]
+    },
+    "suggested-resources": {
+        "cpu-cores":         1,
+        "ram":               1,
+        "walltime-estimate": 60
+    },
+    "custom": {
+        "cbrain:readonly-input-files": true, 
+        "cbrain:author": "Natacha Beck <natacha.beck@mcgill.ca>"
+    }
+}
+  
