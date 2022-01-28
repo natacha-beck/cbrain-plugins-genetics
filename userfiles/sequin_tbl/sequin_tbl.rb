@@ -20,12 +20,12 @@
 #
 
 # Generic model for Tbl Sequin files.
-class TblSequin < CSVFile
+class SequinTbl < CSVFile
 
   Revision_info=CbrainFileRevision[__FILE__] #:nodoc: 
 
   def self.pretty_type #:nodoc:
-    "Tbl Sequin"
+    "Sequin Tbl"
   end
 
   def self.file_name_pattern #:nodoc:
