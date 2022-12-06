@@ -1,0 +1,270 @@
+{
+    "custom": {
+        "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
+        "cbrain:readonly-input-files": true
+    },
+    "command-line": "cellranger count [ID] [FASTQS] [SAMPLE] --transcriptome $REFDATA/[TRANSCRIPTOME] [PROJECT] [LANES] [LIBRARIES] [FEATURE_REF] [TARGET_PANEL] [EXPECT_CELLS] [FORCE_CELLS] [NO_BAM] [NOSECONDARY] [R1_LENGTH] [R2_LENGTH] [INCLUDE_INTRONS] [CHEMESTRY] [NO_LIBRARIES] [CHECK_LIBRARY_COMPATIBILITY] [NO_TARGET_UMI_FILTER] [DRY] --disable-ui [NOPREFLIGHT]",
+    "schema-version": "0.5",
+    "description": "Count gene expression (targeted or whole-transcriptome) and/or feature barcode reads from a single sample and GEM well",
+    "output-files": [
+        {
+            "command-line-flag": "--id",
+            "value-key": "[ID]",
+            "optional": false,
+            "path-template": "cellranger_count_res",
+            "name": "The output directory",
+            "id": "outdir"
+        }
+    ],
+    "inputs": [
+        {
+            "command-line-flag": "--fastqs",
+            "value-key": "[FASTQS]",
+            "type": "File",
+            "name": "FASTQs data",
+            "id": "fastqs",
+            "description": "Input FASTQ data",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--sample",
+            "value-key": "[SAMPLE]",
+            "type": "String",
+            "name": "FASTQs prefix",
+            "id": "sample",
+            "description": "Prefix of the filenames of FASTQs to select",
+            "optional": true
+        },
+        {
+            "value-key": "[TRANSCRIPTOME]",
+            "type": "String",
+            "name": "Transcriptome path",
+            "id": "transcriptome",
+            "value-choices": [
+                "refdata-gex-GRCh38-2020-A",
+                "refdata-gex-mm10-2020-A"
+            ],
+            "optional": false,
+            "description": "Folder containing 10x-compatible transcriptome reference."
+        },
+        {
+            "command-line-flag": "--project",
+            "value-key": "[PROJECT]",
+            "type": "String",
+            "name": "Name of project folder",
+            "id": "project",
+            "description": "Name of the project folder within a mkfastq or bcl2fastq-generated folder from which to pick FASTQs",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--lanes",
+            "value-key": "[LANES]",
+            "type": "Number",
+            "name": "Selected lanes",
+            "id": "lanes",
+            "description": "Only use FASTQs from selected lanes",
+            "list": true,
+            "optional": true
+        },
+        {
+            "command-line-flag": "--libraries",
+            "value-key": "[LIBRARIES]",
+            "type": "File",
+            "name": "CSV for library data sources",
+            "id": "libraries",
+            "description": "CSV file declaring input library data sources",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--feature-ref",
+            "value-key": "[FEATURE_REF]",
+            "type": "File",
+            "name": "Feature reference CSV file",
+            "id": "feature_ref",
+            "description": "Feature reference CSV file, declaring Feature Barcode constructs and associated barcodes",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--target-panel",
+            "value-key": "[TARGET_PANEL]",
+            "type": "File",
+            "name": "Target panel CSV file",
+            "id": "target_panel",
+            "description": "The target panel CSV file declaring the target panel used, if any. Default analysis will exclude intronic mapped reads, which is the recommended mode for targeted assay. Use include-introns=true to include intronic mapped reads in analysis",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--expect-cells",
+            "value-key": "[EXPECT_CELLS]",
+            "type": "Number",
+            "name": "Number of recovered cells",
+            "id": "expect_cells",
+            "description": "Used as input to cell calling algorithm",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--force-cells",
+            "value-key": "[FORCE_CELLS]",
+            "type": "Number",
+            "name": "Bypassing cell calling",
+            "id": "force_cells",
+            "description": "Force pipeline to use this number of cells.",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--no-bam",
+            "value-key": "[NO_BAM]",
+            "type": "Flag",
+            "name": "To not generate the BAM file",
+            "id": "no_bam",
+            "description": "This will reduce the total computation time for the pipestance and the size of the output directory. If unsure, we recommend not to use this option. BAM file could be useful for troubleshooting and downstream analysis",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--nosecondary",
+            "value-key": "[NOSECONDARY]",
+            "type": "Flag",
+            "name": "Disable secondary analysis",
+            "id": "nosecondary",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--r1-length",
+            "value-key": "[R1_LENGTH]",
+            "type": "Number",
+            "name": "Hard trim (Read 1)",
+            "id": "r1_length",
+            "description": "Hard trim the input Read 1 to this length before analysis",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--r2-length",
+            "value-key": "[R2_LENGTH]",
+            "type": "Number",
+            "name": "Hard trim (Read 2)",
+            "id": "r2_length",
+            "description": "Hard trim the input Read 2 to this length before analysis",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--include-introns",
+            "value-key": "[INCLUDE_INTRONS]",
+            "type": "String",
+            "name": "Include intronic reads",
+            "id": "include_introns",
+            "description": "(default=true unless --target-panel is specified in which case default=false)",
+            "value-choices": [
+                "true",
+                "false"
+            ],
+            "optional": true
+        },
+        {
+            "command-line-flag": "--chemestry",
+            "value-key": "[CHEMESTRY]",
+            "type": "String",
+            "name": "Assay configuration",
+            "id": "chemestry",
+            "description": "By default the assay configuration is detected automatically, which is the recommened mode.\nYou usually will not need to specify a chemistry [default: auto].",
+            "value-choices": [
+                "auto",
+                "threeprime",
+                "fiveprime",
+                "SC3Pv1",
+                "SC3Pv2",
+                "SC3Pv3",
+                "SC3Pv3LT",
+                "SC3Pv3HT",
+                "SC5P-PE",
+                "SC5P-R2",
+                "SC-FB"
+            ],
+            "optional": true
+        },
+        {
+            "command-line-flag": "--no-libraries",
+            "value-key": "[NO_LIBRARIES]",
+            "type": "Flag",
+            "name": "No libraries",
+            "id": "no_libraries",
+            "description": "Proceed with processing using a --feature-ref but no Feature Barcode libraries specified with the 'libraries' flag",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--check-library-compatibility",
+            "value-key": "[CHECK_LIBRARY_COMPATIBILITY]",
+            "type": "String",
+            "name": "Check Library compatibility",
+            "id": "check_library_compatibility",
+            "description": "Whether to check for barcode compatibility between libraries.",
+            "value-choices": [
+                "true",
+                "false"
+            ],
+            "optional": true
+        },
+        {
+            "command-line-flag": "--no-target-umi-filter",
+            "value-key": "[NO_TARGET_UMI_FILTER]",
+            "type": "Flag",
+            "name": "No target UMI filter",
+            "id": "no_target_umi_filter",
+            "description": "Turn off the target UMI filtering subpipeline. Only applies when --target-panel is used",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--dry",
+            "value-key": "[DRY]",
+            "type": "Flag",
+            "name": "Dry run",
+            "id": "dry",
+            "description": "Do not execute the pipeline. Generate a pipeline invocation (.mro) file and stop",
+            "optional": true
+        },
+        {
+            "command-line-flag": "--nopreflight",
+            "value-key": "[NOPREFLIGHT]",
+            "type": "Flag",
+            "name": "No preflight",
+            "id": "nopreflight",
+            "description": "Skip preflight check",
+            "optional": true
+        }
+    ],
+    "name": "cellranger-count",
+    "tool-version": "7.0.1",
+    "author": "10x Genomics",
+    "tags": {
+        "domain": [
+            "boutiques",
+            "genetic",
+            "cellranger"
+        ]
+    },
+    "groups": [
+        {
+            "members": [
+                "project",
+                "lanes",
+                "libraries",
+                "feature_ref",
+                "target_panel",
+                "expect_cells",
+                "force_cells",
+                "no_bam",
+                "nosecondary",
+                "r1_length",
+                "r2_length",
+                "include_introns",
+                "chemestry",
+                "no_libraries",
+                "check_library_compatibility",
+                "no_target_umi_filter",
+                "dry",
+                "nopreflight"
+            ],
+            "name": "Advanced options.",
+            "id": "advanced"
+        }
+    ],
+    "url": "https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_ct"}
