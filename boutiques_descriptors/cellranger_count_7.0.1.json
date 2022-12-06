@@ -4,8 +4,8 @@
     "tool-version": "7.0.1",
     "author": "10x Genomics",
     "url": "https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_ct",
-    "command-line": "cellranger count [ID] [FASTQS] [SAMPLE] --transcriptome $REFDATA/[TRANSCRIPTOME] [PROJECT] [LANES] [LIBRARIES] [FEATURE_REF] [TARGET_PANEL] [EXPECT_CELLS] [FORCE_CELLS] [NO_BAM] [NOSECONDARY] [R1_LENGTH] [R2_LENGTH] [INCLUDE_INTRONS] [CHEMESTRY] [NO_LIBRARIES] [CHECK_LIBRARY_COMPATIBILITY] [NO_TARGET_UMI_FILTER] [DRY] --disable-ui [NOPREFLIGHT]",
-    "description": "Count gene expression (targeted or whole-transcriptome) and/or feature barcode reads from a single sample and GEM well",
+    "command-line": "cellranger count [ID] [FASTQS] [SAMPLE] --transcriptome \"$REFDATA\"/[TRANSCRIPTOME] [PROJECT] [LANES] [LIBRARIES] [FEATURE_REF] [TARGET_PANEL] [EXPECT_CELLS] [FORCE_CELLS] [NO_BAM] [NOSECONDARY] [R1_LENGTH] [R2_LENGTH] [INCLUDE_INTRONS] [CHEMESTRY] [NO_LIBRARIES] [CHECK_LIBRARY_COMPATIBILITY] [NO_TARGET_UMI_FILTER] [DRY] --disable-ui [NOPREFLIGHT]",
+    "description": "Count gene expression (targeted or whole-transcriptome) and/or feature barcode reads from a single sample and GEM well.",
     "inputs": [
         {
             "command-line-flag": "--fastqs",
@@ -35,7 +35,7 @@
                 "refdata-gex-mm10-2020-A"
             ],
             "optional": false,
-            "description": "Folder containing 10x-compatible transcriptome reference."
+            "description": "Basename of the transcriptome reference data. The folder is expected to be installed under the path specified by the environment variable REFDATA"
         },
         {
             "command-line-flag": "--project",
