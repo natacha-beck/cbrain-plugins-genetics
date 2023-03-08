@@ -83,8 +83,7 @@ module BoutiquesGroupFileByPattern
       params_values.map do |value|
         task = self.dup
         task.description    = task.description || ""
-        task.description   += "\n\nRun with the following value #{value} for the input #{input_id}"
-        # Add the value to the description... for information
+        task.description   += "\n\nRun with value: #{value}, for input #{input_id}."
         task.invoke_params[input_id] = [value]
         task
       end
