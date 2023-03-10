@@ -13,7 +13,7 @@
             "type": "File",
             "name": "FASTQs data",
             "id": "fastqs",
-            "description": "Input FASTQ data",
+            "description": "Input FASTQ data.\n Note: You cannot use a Cbcsv file to launch multiple tasks. It will conflict with the --sample option.",
             "optional": true
         },
         {
@@ -29,7 +29,7 @@
         {
             "value-key": "[TRANSCRIPTOME]",
             "type": "String",
-            "name": "Transcriptome path",
+            "name": "Transcriptome reference data",
             "id": "transcriptome",
             "value-choices": [
                 "refdata-gex-GRCh38-2020-A",
@@ -269,7 +269,7 @@
         "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
         "cbrain:readonly-input-files": true,
         "cbrain:integrator_modules": {
-            "BoutiquesGroupFileByPattern": [ "samples", "FastqCollection", "\\A(.*)(_R1_|_R2_|_I1_).+\\.fastq.+\\z" ]
+            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FastqCollection", "\\A(.*)(_R1_|_R2_|_I1_).+\\.fastq.+\\z" ]
         }
     }
 }
