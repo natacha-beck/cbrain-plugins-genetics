@@ -13,7 +13,7 @@
             "type": "File",
             "name": "FASTQs data",
             "id": "fastqs",
-            "description": "Input FASTQ data.\n Note: You cannot use a Cbcsv file to launch multiple tasks. It will conflict with the --sample option.",
+            "description": "Input FASTQ collection.",
             "optional": true
         },
         {
