@@ -269,7 +269,7 @@
         "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
         "cbrain:readonly-input-files": true,
         "cbrain:integrator_modules": {
-            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FastqCollection", "\\A(.*)(_R1_|_R2_|_I1_).+\\.fastq.+\\z" ]
+            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FastqCollection", "\\A(.*)(_R\\d+_|_I\\d+_).+\\.fastq.+\\z" ]
         }
     }
 }
