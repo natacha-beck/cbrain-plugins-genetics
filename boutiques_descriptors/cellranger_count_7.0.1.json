@@ -23,7 +23,7 @@
             "name": "FASTQs prefix",
             "id": "samples",
             "list": true,
-            "description": "Prefix of the filenames of FASTQs to select. One task will be launch by specified sample",
+            "description": "Prefix of the filenames of FASTQs to select. One task will be launched by specified sample",
             "optional": true
         },
         {
