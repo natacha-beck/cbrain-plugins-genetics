@@ -22,10 +22,10 @@
 # Generic model FileCollection containing FASTQ files.
 class FASTQCollection < FileCollection
 
-    Revision_info=CbrainFileRevision[__FILE__] #:nodoc:
+  Revision_info=CbrainFileRevision[__FILE__] #:nodoc:
 
-    def self.pretty_type #:nodoc:
-      "FASTQ Collection"
-    end
-
+  def self.pretty_type #:nodoc:
+    "FASTQ Collection"
   end
+
+end
