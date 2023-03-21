@@ -4,7 +4,7 @@
     "tool-version": "7.0.1",
     "author": "10x Genomics",
     "url": "https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/using/tutorial_ct",
-    "command-line": "cellranger count [ID] [FASTQS] [SAMPLE] --transcriptome \"$REFDATA\"/[TRANSCRIPTOME] [PROJECT] [LANES] [LIBRARIES] [FEATURE_REF] [TARGET_PANEL] [EXPECT_CELLS] [FORCE_CELLS] [NO_BAM] [NOSECONDARY] [R1_LENGTH] [R2_LENGTH] [INCLUDE_INTRONS] [CHEMESTRY] [NO_LIBRARIES] [CHECK_LIBRARY_COMPATIBILITY] [NO_TARGET_UMI_FILTER] [DRY] --disable-ui [NOPREFLIGHT]",
+    "command-line": "cellranger count [ID] [FASTQS] [SAMPLES] --transcriptome \"$REFDATA\"/[TRANSCRIPTOME] [PROJECT] [LANES] [LIBRARIES] [FEATURE_REF] [TARGET_PANEL] [EXPECT_CELLS] [FORCE_CELLS] [NO_BAM] [NOSECONDARY] [R1_LENGTH] [R2_LENGTH] [INCLUDE_INTRONS] [CHEMESTRY] [NO_LIBRARIES] [CHECK_LIBRARY_COMPATIBILITY] [NO_TARGET_UMI_FILTER] [DRY] --disable-ui [NOPREFLIGHT]",
     "description": "Count gene expression (targeted or whole-transcriptome) and/or feature barcode reads from a single sample and GEM well.",
     "inputs": [
         {
@@ -13,22 +13,23 @@
             "type": "File",
             "name": "FASTQs data",
             "id": "fastqs",
-            "description": "Input FASTQ data",
+            "description": "Input FASTQ collection.",
             "optional": true
         },
         {
             "command-line-flag": "--sample",
-            "value-key": "[SAMPLE]",
+            "value-key": "[SAMPLES]",
             "type": "String",
             "name": "FASTQs prefix",
-            "id": "sample",
-            "description": "Prefix of the filenames of FASTQs to select",
+            "id": "samples",
+            "list": true,
+            "description": "Prefix of the filenames of FASTQs to select. One task will be launched by specified sample",
             "optional": true
         },
         {
             "value-key": "[TRANSCRIPTOME]",
             "type": "String",
-            "name": "Transcriptome path",
+            "name": "Transcriptome reference data",
             "id": "transcriptome",
             "value-choices": [
                 "refdata-gex-GRCh38-2020-A",
@@ -266,6 +267,9 @@
     },
     "custom": {
         "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
-        "cbrain:readonly-input-files": true
+        "cbrain:readonly-input-files": true,
+        "cbrain:integrator_modules": {
+            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FASTQCollection", "\\A(.*)_[RI]\\d+_.+\\.fastq" ]
+        }
     }
 }
