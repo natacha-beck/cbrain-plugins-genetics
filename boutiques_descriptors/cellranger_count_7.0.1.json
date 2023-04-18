@@ -33,7 +33,8 @@
             "id": "transcriptome",
             "value-choices": [
                 "refdata-gex-GRCh38-2020-A",
-                "refdata-gex-mm10-2020-A"
+                "refdata-gex-mm10-2020-A",
+                "tdTomato_genome"
             ],
             "optional": false,
             "description": "Basename of the transcriptome reference data. The folder is expected to be installed under the path specified by the environment variable REFDATA"
@@ -269,7 +270,7 @@
         "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
         "cbrain:readonly-input-files": true,
         "cbrain:integrator_modules": {
-            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FASTQCollection", "\\A(.*)_[RI]\\d+_.+\\.fastq" ]
+            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FASTQCollection", "\\A(.*)_S\\d+_L\\d+_[RI]\\d+_.+\\.fastq" ]
         }
     }
 }
