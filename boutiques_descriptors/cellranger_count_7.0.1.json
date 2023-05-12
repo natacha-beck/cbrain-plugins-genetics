@@ -14,7 +14,7 @@
             "name": "FASTQs data",
             "id": "fastqs",
             "description": "Input FASTQ collection.",
-            "optional": true
+            "optional": false
         },
         {
             "command-line-flag": "--sample",
