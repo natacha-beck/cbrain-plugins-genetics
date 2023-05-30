@@ -274,7 +274,7 @@
                 "fastqs": [ "FASTQCollection" ]
             },
             "BoutiquesOutputFileTypeSetter": {
-                "outdir": "CellrangerOutput"
+                "outdir": "CellrangerCountOutput"
             }
         }
     }
