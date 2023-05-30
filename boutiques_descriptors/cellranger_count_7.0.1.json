@@ -261,7 +261,6 @@
     ],
     "tags": {
         "domain": [
-            "boutiques",
             "genetic",
             "cellranger"
         ]
@@ -270,7 +269,13 @@
         "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
         "cbrain:readonly-input-files": true,
         "cbrain:integrator_modules": {
-            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FASTQCollection", "\\A(.*)_S\\d+_L\\d+_[RI]\\d+_.+\\.fastq" ]
+            "BoutiquesCollectionBasenamesListMaker": [ "samples", "FASTQCollection", "\\A(.*)_S\\d+_L\\d+_[RI]\\d+_.+\\.fastq" ],
+            "BoutiquesFileTypeVerifier": {
+                "fastqs": [ "FASTQCollection" ]
+            },
+            "BoutiquesOutputFileTypeSetter": {
+                "outdir": "CellrangerOutput"
+            }
         }
     }
 }
