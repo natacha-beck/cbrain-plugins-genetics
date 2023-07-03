@@ -275,7 +275,13 @@
             },
             "BoutiquesOutputFileTypeSetter": {
                 "outdir": "CellrangerCountOutput"
-            }
+            },
+            "BoutiquesOutputCacheCleaner": [
+                "outdir"
+            ],
+            "BoutiquesPostProcessingCleaner": [
+                "cellranger_count_res"
+            ]
         }
     }
 }
