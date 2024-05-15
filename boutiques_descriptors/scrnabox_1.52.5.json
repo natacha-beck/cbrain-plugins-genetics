@@ -1515,5 +1515,13 @@
                 "step8_contrast_sample_based_celltype_groups"
             ]
         }
-    ]
+    ],
+    "custom": {
+        "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
+        "cbrain:integrator_modules": {
+            "BoutiquesPostProcessingCleaner": [
+                "[DIR]"
+            ]
+        }
+    }
 }
