@@ -433,7 +433,7 @@
             "name": "Directory containing Seurat object(s)",
             "command-line-flag": "--par_seurat_object_step3",
             "value-key": "[PAR_SEURAT_OBJECT_STEP3]",
-            "type": "String",
+            "type": "File",
             "id": "par_seurat_object_step3",
             "description": "Directory containing Seurat object(s)",
             "optional": true
@@ -641,7 +641,7 @@
             "name": "Directory containing Seurat object(s)",
             "command-line-flag": "--par_seurat_object_step4",
             "value-key": "[PAR_SEURAT_OBJECT_STEP4]",
-            "type": "String",
+            "type": "File",
             "id": "par_seurat_object_step4",
             "description": "Directory containing Seurat object(s)",
             "optional": true
@@ -716,6 +716,8 @@
             "type": "String",
             "id": "par_sample_names_step4",
             "description": "List of sample names",
+            "list": true,
+            "list-separator": ",",
             "optional": true
         },
         {
@@ -725,6 +727,8 @@
             "type": "String",
             "id": "par_expected_doublet_rate",
             "description": "List of expected doublet rates",
+            "list": true,
+            "list-separator": ",",
             "optional": true
         },
         {
@@ -749,7 +753,7 @@
             "name": "Directory containing Seurat object(s)",
             "command-line-flag": "--par_seurat_object_step5",
             "value-key": "[PAR_SEURAT_OBJECT_STEP5]",
-            "type": "String",
+            "type": "File",
             "id": "par_seurat_object_step5",
             "description": "Directory containing Seurat object(s)",
             "optional": true
@@ -893,7 +897,7 @@
             "name": "Path to Seurat object",
             "command-line-flag": "--par_seurat_object_step6",
             "value-key": "[PAR_SEURAT_OBJECT_STEP6]",
-            "type": "String",
+            "type": "File",
             "id": "par_seurat_object_step6",
             "description": "Path to Seurat object",
             "optional": true
@@ -950,6 +954,8 @@
             "type": "String",
             "id": "par_FindClusters_resolution",
             "description": "Value of the clustering resolution parameter",
+            "list": true,
+            "list-separator": ",",
             "optional": true
         },
         {
@@ -992,7 +998,7 @@
             "name": "Path to Seurat object",
             "command-line-flag": "--par_seurat_object_step7",
             "value-key": "[PAR_SEURAT_OBJECT_STEP7]",
-            "type": "String",
+            "type": "File",
             "id": "par_seurat_object_step7",
             "description": "Path to Seurat object",
             "optional": true
@@ -1064,7 +1070,7 @@
             "name": "csv file containing the genes sets for module score",
             "command-line-flag": "--par_module_score",
             "value-key": "[PAR_MODULE_SCORE]",
-            "type": "String",
+            "type": "File",
             "id": "par_module_score",
             "description": "csv file containing the genes sets for module score",
             "optional": true
@@ -1076,13 +1082,15 @@
             "type": "String",
             "id": "par_select_features_list",
             "description": "List of markers that you want to visualize",
+            "list": true,
+            "list-separator": ",",
             "optional": true
         },
         {
             "name": "csv file containing the markers that you want to visualize",
             "command-line-flag": "--par_select_features_csv",
             "value-key": "[PAR_SELECT_FEATURES_CSV]",
-            "type": "String",
+            "type": "File",
             "id": "par_select_features_csv",
             "description": "csv file containing the markers that you want to visualize",
             "optional": true
@@ -1157,6 +1165,8 @@
             "type": "String",
             "id": "par_annotate_labels",
             "description": "A list of cluster labels",
+            "list": true,
+            "list-separator": ",",
             "optional": true
         },
         {
@@ -1181,7 +1191,7 @@
             "name": "Path to Seurat object",
             "command-line-flag": "--par_seurat_object_step8",
             "value-key": "[PAR_SEURAT_OBJECT_STEP8]",
-            "type": "String",
+            "type": "File",
             "id": "par_seurat_object_step8",
             "description": "Path to Seurat object",
             "optional": true
@@ -1199,7 +1209,7 @@
             "name": "Path to a csv file describing new metadata that should be added to the Seurat object",
             "command-line-flag": "--par_metadata",
             "value-key": "[PAR_METADATA]",
-            "type": "String",
+            "type": "File",
             "id": "par_metadata",
             "description": "Path to a csv file describing new metadata that should be added to the Seurat object",
             "optional": true
