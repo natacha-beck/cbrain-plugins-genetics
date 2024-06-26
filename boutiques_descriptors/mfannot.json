@@ -54,7 +54,7 @@
             "command-line-flag": "--sqn",
             "type": "Flag",
             "value-key": "[SQN]"
-        }, 
+        },
         {
             "id": "tbl",
             "name": "Generate a tbl Sequin file",
@@ -62,7 +62,7 @@
             "command-line-flag": "--tbl",
             "type": "Flag",
             "value-key": "[TBL]"
-        }, 
+        },
         {
           "id": "partial",
           "name": "Partial annotation",
@@ -166,8 +166,8 @@
           "optional": true,
           "command-line-flag": "--overlapcut",
           "type": "Number",
-          "minimum": 0, 
-          "maximum": 100, 
+          "minimum": 0,
+          "maximum": 100,
           "value-key": "[OVERLAPCUT]"
         },
         {
@@ -182,7 +182,7 @@
         {
           "id": "orfOVgene",
           "name": "ORF overlap gene",
-          "description": "Special case, 1 orf is overlapping a gene and make Xaa of length\nannotate this one.",      
+          "description": "Special case, 1 orf is overlapping a gene and make Xaa of length\nannotate this one.",
           "optional": true,
           "command-line-flag": "--orfOVgene",
           "type": "Number",
@@ -215,7 +215,7 @@
             ],
             "value-key": "[LVLMOT]"
         }
-        
+
     ],
     "output-files": [
         {
@@ -260,8 +260,8 @@
         "walltime-estimate": 60
     },
     "custom": {
-        "cbrain:readonly-input-files": true, 
-        "cbrain:author": "Natacha Beck <natacha.beck@mcgill.ca>"
+        "cbrain:readonly-input-files": true,
+        "cbrain:author": "Natacha Beck <nbeck@mcin.ca>"
     }
 }
-  
+
