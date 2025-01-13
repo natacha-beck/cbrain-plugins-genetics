@@ -1498,11 +1498,8 @@
         "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
         "cbrain:integrator_modules": {
             "BoutiquesInputCopier": {
-                "working_dir":         { "default-value": true, "hide": true }
+                "working_dir":         { "select_box_selected": true, "select_box_hidden": true }
             },
-            "BoutiquesPostProcessingCleaner": [
-                "[WORKING_DIR]*"
-            ],
             "BoutiquesOutputFileTypeSetter": {
                 "output_dir": "ScrnaboxOutput"
             },
