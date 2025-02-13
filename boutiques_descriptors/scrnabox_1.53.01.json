@@ -171,7 +171,7 @@
             "value-key": "[PAR_REF_DIR_GRCH]",
             "type": "String",
             "id": "par_ref_dir_grch",
-            "description": "Reference genome for FASTQ alignment. 10X Genomics reference genomes are available for download. For more information see the 10X Genomics documentation.",
+            "description": "Reference genome for FASTQ alignment.",
             "value-choices": [
                 "refdata-cellranger-GRCh38-3.0.0",
                 "refdata-gex-GRCh38-2020-A",
@@ -1079,7 +1079,7 @@
             "name": "Seurat RDS object to use as the reference",
             "command-line-flag": "--par_reference",
             "value-key": "[PAR_REFERENCE]",
-            "type": "String",
+            "type": "File",
             "id": "par_reference",
             "description": "Seurat RDS object to use as the reference",
             "optional": true
@@ -1509,7 +1509,7 @@
             "BoutiquesScrnaboxRessourceManager": {
                 "1": {
                     "ram": 30,
-                    "walltime": 30
+                    "walltime": 180
                 },
                 "2": {
                     "ram": 16,
