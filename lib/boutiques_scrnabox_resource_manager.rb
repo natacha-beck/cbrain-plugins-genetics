@@ -20,7 +20,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-module BoutiquesScrnaboxRessourceManager
+module BoutiquesScrnaboxResourceManager
 
   # Note: to access the revision info of the module,
   # you need to access the constant directly, the
@@ -30,7 +30,7 @@ module BoutiquesScrnaboxRessourceManager
   def descriptor_for_cluster_commands
     descriptor                = super.dup
 
-    suggested_resources_by_steps = descriptor.custom_module_info("BoutiquesScrnaboxRessourceManager")
+    suggested_resources_by_steps = descriptor.custom_module_info("BoutiquesScrnaboxResourceManager")
 
     invoke_steps          = invoke_params["steps"] # '1' or '2' or '1-8'
     first_step, last_step = invoke_steps.split("-").map(&:to_i)

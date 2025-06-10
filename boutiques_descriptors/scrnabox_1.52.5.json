@@ -4,17 +4,22 @@
     "tool-version": "v1.52.50",
     "author": "MNI BIOINFO CORE",
     "url": "https://neurobioinfo.github.io/scrnabox/site/",
-    "command-line": "scRNAbox_cmd_wrapper.py --R_path $R_PATH --job_mode local [DIR] [STEPS] [OUTPUT_DIR] [METHOD] [MSD] [MARKERGSEA] [KNOWNMARKERS] [REFERENCEANNOTATION] [ANNOTATE] [ADDMETA] [RUNDGE] [SEULIST] [RCHECK] [PAR_AUTOMATED_LIBRARY_PREP] [PAR_FASTQ_DIRECTORY] [PAR_SAMPLE_NAMES_STEP1] [PAR_RENAME_SAMPLES] [PAR_NEW_SAMPLE_NAMES] [PAR_PAIRED_END_SEQ] --ref_data_dir \"$REF_DATA_DIR\"/ [PAR_REF_DIR_GRCH] [PAR_R1_LENGTH] [PAR_R2_LENGTH] [PAR_MEMPERCODE] [PAR_INCLUDE_INTRONS] [PAR_NO_TARGET_UMI_FILTER] [PAR_EXPECT_CELLS] [PAR_FORCE_CELLS] [PAR_NO_BAM] [PAR_RNA_RUN_NAMES] [PAR_HTO_RUN_NAMES] [PAR_SEQ_RUN_NAMES] [ID] [NAME] [READ] [PATTERN] [SEQUENCE] [PAR_SAVE_RNA_STEP2] [PAR_SAVE_METADATA_STEP2] [PAR_AMBIENT_RNA] [PAR_MIN_CELLS_L] [PAR_NORMALIZATION_METHOD_STEP2] [PAR_SCALE_FACTOR_STEP2] [PAR_SELECTION_METHOD_STEP2] [PAR_NFEATURES_STEP2] [PAR_SAVE_RNA_STEP3] [PAR_SAVE_METADATA_STEP3] [PAR_SEURAT_OBJECT_STEP3] [PAR_NFEATURE_RNA_L] [PAR_NFEATURE_RNA_U] [PAR_NCOUNT_RNA_L] [PAR_NCOUNT_RNA_U] [PAR_MITOCHONDRIA_PERCENT_L] [PAR_MITOCHONDRIA_PERCENT_U] [PAR_RIBOSOMAL_PERCENT_L] [PAR_RIBOSOMAL_PERCENT_U] [PAR_REMOVE_MITOCHONDRIAL_GENES] [PAR_REMOVE_RIBOSOMAL_GENES] [PAR_REMOVE_GENES] [PAR_REGRESS_CELL_CYCLE_GENES] [PAR_REGRESS_CUSTOM_GENES] [PAR_REGRESS_GENES] [PAR_NORMALIZATION_METHOD_STEP3] [PAR_SCALE_FACTOR_STEP3] [PAR_SELECTION_METHOD_STEP3] [PAR_NFEATURES_STEP3] [PAR_TOP] [PAR_NPCS_PCA] [PAR_SAVE_RNA_STEP4] [PAR_SAVE_METADATA_STEP4] [PAR_SEURAT_OBJECT_STEP4] [PAR_RUNUMAP_DIMS_STEP4] [PAR_RUNUMAP_N_NEIGHBORS_STEP4] [PAR_DROPDN] [PAR_PCS] [PAR_PN] [PAR_SCT] [PAR_RATE_NEXP] [PAR_SAMPLE_NAMES_STEP4] [PAR_EXPECTED_DOUBLET_RATE] [PAR_SAVE_RNA_STEP5] [PAR_SAVE_METADATA_STEP5] [PAR_SEURAT_OBJECT_STEP5] [PAR_ONE_SEURAT] [PAR_INTEGRATE_SEURAT] [PAR_MERGE_SEURAT] [PAR_DEFAULTASSAY] [PAR_NORMALIZATION_METHOD_STEP5] [PAR_SCALE_FACTOR_STEP5] [PAR_SELECTION_METHOD_STEP5] [PAR_NFEATURES_STEP5] [PAR_FINDINTEGRATIONANCHORS_DIM] [PAR_RUNPCA_NPCS] [PAR_RUNUMAP_DIMS_STEP5] [PAR_RUNUMAP_N_NEIGHBORS_STEP5] [PAR_COMPUTE_JACKSTRAW] [PAR_SAVE_RNA_STEP6] [PAR_SAVE_METADATA_STEP6] [PAR_SEURAT_OBJECT_STEP6] [PAR_SKIP_INTEGRATION] [PAR_FINDNEIGHBORS_DIMS] [PAR_RUNUMAP_DIMS_STEP6] [PAR_FINDNEIGHBORS_K_PARAM] [PAR_FINDNEIGHBORS_PRUNE_SNN] [PAR_FINDCLUSTERS_RESOLUTION] [PAR_COMPUTE_ARI] [PAR_RI_REPS] [PAR_SAVE_RNA_STEP7] [PAR_SAVE_METADATA_STEP7] [PAR_SEURAT_OBJECT_STEP7] [PAR_LEVEL_CLUSTER] [PAR_RUN_FIND_MARKER] [PAR_RUN_ENRICHR] [PAR_TOP_SEL] [PAR_DB] [PAR_RUN_MODULE_SCORE] [PAR_RUN_VISUALIZE_MARKERS] [PAR_MODULE_SCORE] [PAR_SELECT_FEATURES_LIST] [PAR_SELECT_FEATURES_CSV] [PAR_REFERENCE] [PAR_REFERENCE_NAME] [PAR_LEVEL_CELLTYPE] [PAR_FINDTRANSFERANCHORS_DIM] [PAR_FUTUREGLOBALSMAXSIZE] [PAR_ANNOTATE_RESOLUTION] [PAR_NAME_METADATA] [PAR_ANNOTATE_LABELS] [PAR_SAVE_RNA_STEP8] [PAR_SAVE_METADATA_STEP8] [PAR_SEURAT_OBJECT_STEP8] [PAR_MERGE_META] [PAR_METADATA] [PAR_RUN_CELL_BASED_ALL_CELLS] [PAR_RUN_CELL_BASED_CELLTYPE_GROUPS] [PAR_RUN_SAMPLE_BASED_ALL_CELLS] [PAR_RUN_SAMPLE_BASED_CELLTYPE_GROUPS] [PAR_STATISTICAL_METHOD] [STEP8_CONTRAST_CELL_BASED_ALL_CELLS] [STEP8_CONTRAST_CELL_BASED_CELLTYPE_GROUPS] [STEP8_CONTRAST_SAMPLE_BASED_ALL_CELLS] [STEP8_CONTRAST_SAMPLE_BASED_CELLTYPE_GROUPS]",
+    "command-line": "scRNAbox_cmd_wrapper.py --R_path $R_PATH --job_mode local [WORKING_DIR] [STEPS] [OUTPUT_DIR] [METHOD] [MSD] [MARKERGSEA] [KNOWNMARKERS] [REFERENCEANNOTATION] [ANNOTATE] [ADDMETA] [RUNDGE] [PAR_AUTOMATED_LIBRARY_PREP] [PAR_FASTQ_DIRECTORY] [PAR_SAMPLE_NAMES_STEP1] [PAR_RENAME_SAMPLES] [PAR_NEW_SAMPLE_NAMES] [PAR_PAIRED_END_SEQ] --ref_data_dir \"$REF_DATA_DIR\"/ [PAR_REF_DIR_GRCH] [PAR_R1_LENGTH] [PAR_R2_LENGTH] [PAR_INCLUDE_INTRONS] [PAR_NO_TARGET_UMI_FILTER] [PAR_EXPECT_CELLS] [PAR_FORCE_CELLS] [PAR_NO_BAM] [PAR_RNA_RUN_NAMES] [PAR_HTO_RUN_NAMES] [PAR_SEQ_RUN_NAMES] [ID] [NAME] [READ] [PATTERN] [SEQUENCE] [PAR_SAVE_RNA_STEP2] [PAR_SAVE_METADATA_STEP2] [PAR_AMBIENT_RNA] [PAR_MIN_CELLS_L] [PAR_NORMALIZATION_METHOD_STEP2] [PAR_SCALE_FACTOR_STEP2] [PAR_SELECTION_METHOD_STEP2] [PAR_NFEATURES_STEP2] [PAR_SAVE_RNA_STEP3] [PAR_SAVE_METADATA_STEP3] [PAR_SEURAT_OBJECT_STEP3] [PAR_NFEATURE_RNA_L] [PAR_NFEATURE_RNA_U] [PAR_NCOUNT_RNA_L] [PAR_NCOUNT_RNA_U] [PAR_MITOCHONDRIA_PERCENT_L] [PAR_MITOCHONDRIA_PERCENT_U] [PAR_RIBOSOMAL_PERCENT_L] [PAR_RIBOSOMAL_PERCENT_U] [PAR_REMOVE_MITOCHONDRIAL_GENES] [PAR_REMOVE_RIBOSOMAL_GENES] [PAR_REMOVE_GENES] [PAR_REGRESS_CELL_CYCLE_GENES] [PAR_REGRESS_CUSTOM_GENES] [PAR_REGRESS_GENES] [PAR_NORMALIZATION_METHOD_STEP3] [PAR_SCALE_FACTOR_STEP3] [PAR_SELECTION_METHOD_STEP3] [PAR_NFEATURES_STEP3] [PAR_TOP] [PAR_NPCS_PCA] [PAR_SAVE_RNA_STEP4] [PAR_SAVE_METADATA_STEP4] [PAR_SEURAT_OBJECT_STEP4] [PAR_RUNUMAP_DIMS_STEP4] [PAR_RUNUMAP_N_NEIGHBORS_STEP4] [PAR_DROPDN] [PAR_PCS] [PAR_PN] [PAR_SCT] [PAR_RATE_NEXP] [PAR_SAMPLE_NAMES_STEP4] [PAR_EXPECTED_DOUBLET_RATE] [PAR_SAVE_RNA_STEP5] [PAR_SAVE_METADATA_STEP5] [PAR_SEURAT_OBJECT_STEP5] [PAR_ONE_SEURAT] [PAR_INTEGRATE_SEURAT] [PAR_MERGE_SEURAT] [PAR_DEFAULTASSAY] [PAR_NORMALIZATION_METHOD_STEP5] [PAR_SCALE_FACTOR_STEP5] [PAR_SELECTION_METHOD_STEP5] [PAR_NFEATURES_STEP5] [PAR_FINDINTEGRATIONANCHORS_DIM] [PAR_RUNPCA_NPCS] [PAR_RUNUMAP_DIMS_STEP5] [PAR_RUNUMAP_N_NEIGHBORS_STEP5] [PAR_COMPUTE_JACKSTRAW] [PAR_SAVE_RNA_STEP6] [PAR_SAVE_METADATA_STEP6] [PAR_SEURAT_OBJECT_STEP6] [PAR_SKIP_INTEGRATION] [PAR_FINDNEIGHBORS_DIMS] [PAR_RUNUMAP_DIMS_STEP6] [PAR_FINDNEIGHBORS_K_PARAM] [PAR_FINDNEIGHBORS_PRUNE_SNN] [PAR_FINDCLUSTERS_RESOLUTION] [PAR_COMPUTE_ARI] [PAR_RI_REPS] [PAR_SAVE_RNA_STEP7] [PAR_SAVE_METADATA_STEP7] [PAR_SEURAT_OBJECT_STEP7] [PAR_LEVEL_CLUSTER] [PAR_RUN_FIND_MARKER] [PAR_RUN_ENRICHR] [PAR_TOP_SEL] [PAR_DB] [PAR_RUN_MODULE_SCORE] [PAR_RUN_VISUALIZE_MARKERS] [PAR_MODULE_SCORE] [PAR_SELECT_FEATURES_LIST] [PAR_SELECT_FEATURES_CSV] [PAR_REFERENCE] [PAR_REFERENCE_NAME] [PAR_LEVEL_CELLTYPE] [PAR_FINDTRANSFERANCHORS_DIM] [PAR_FUTUREGLOBALSMAXSIZE] [PAR_ANNOTATE_RESOLUTION] [PAR_NAME_METADATA] [PAR_ANNOTATE_LABELS] [PAR_SAVE_RNA_STEP8] [PAR_SAVE_METADATA_STEP8] [PAR_SEURAT_OBJECT_STEP8] [PAR_MERGE_META] [PAR_METADATA] [PAR_RUN_CELL_BASED_ALL_CELLS] [PAR_RUN_CELL_BASED_CELLTYPE_GROUPS] [PAR_RUN_SAMPLE_BASED_ALL_CELLS] [PAR_RUN_SAMPLE_BASED_CELLTYPE_GROUPS] [PAR_STATISTICAL_METHOD] [CONTRAST_CELL_BASED_ALL_CELLS] [CONTRAST_CELL_BASED_CELLTYPE_GROUPS] [CONTRAST_SAMPLE_BASED_ALL_CELLS] [CONTRAST_SAMPLE_BASED_CELLTYPE_GROUPS]",
     "description": "scRNAbox is a collection of tools for single-cell RNA-seq data analysis.",
+    "suggested-resources": {
+        "walltime-estimate": 700,
+        "ram": 5
+    },
     "inputs": [
         {
             "name": "Working directory",
             "command-line-flag": "-d",
-            "value-key": "[DIR]",
-            "type": "String",
-            "id": "dir",
-            "description": "Working directory (where all the outputs will be printed) it will created if it does not exist in you current directory",
-            "optional": false
+            "value-key": "[WORKING_DIR]",
+            "type": "File",
+            "id": "working_dir",
+            "default-value": "scRNAbox_workdir",
+            "description": "Provide nothing to run scRNAbox from step 1. Provide the output of a previous run to continue processing further",
+            "optional": true
         },
         {   "name": "Steps",
             "command-line-flag": "--steps",
@@ -102,24 +107,6 @@
             "optional": true
         },
         {
-            "name": "Seurat list",
-            "command-line-flag": "--seulist",
-            "value-key": "[SEULIST]",
-            "type": "Flag",
-            "id": "seulist",
-            "description": "You can directly call the list of Seurat objects to the pipeline.",
-            "optional": true
-        },
-        {
-            "name": "R check",
-            "command-line-flag": "--rcheck",
-            "value-key": "[RCHECK]",
-            "type": "Flag",
-            "id": "rcheck",
-            "description": "Check the R version and the required packages.",
-            "optional": true
-        },
-        {
             "name": "Automated library prep",
             "command-line-flag": "--par_automated_library_prep",
             "value-key": "[PAR_AUTOMATED_LIBRARY_PREP]",
@@ -135,7 +122,7 @@
             "type": "File",
             "id": "par_fastq_directory",
             "description": "Directory containing the FASTQ files. This directory should only contain FASTQ files for the experiment.",
-            "optional": false
+            "optional": true
         },
         {
             "name": "Sample names",
@@ -208,14 +195,6 @@
             "type": "Number",
             "id": "par_r2_length",
             "description": "Minimum number of bases to retain for R2 sequence of gene expression",
-            "optional": true
-        },{
-            "name": "Memory per core",
-            "command-line-flag": "--par_mempercode",
-            "value-key": "[PAR_MEMPERCODE]",
-            "type": "Number",
-            "id": "par_mempercode",
-            "description": "Memory per core (default 30)",
             "optional": true
         },
         {
@@ -1261,37 +1240,37 @@
         },
         {
             "name": "To perform cell-based DGE using all cells",
-            "command-line-flag": "--step8_contrast_cell_based_all_cells",
-            "value-key": "[STEP8_CONTRAST_CELL_BASED_ALL_CELLS]",
+            "command-line-flag": "--contrast_cell_based_all_cells",
+            "value-key": "[CONTRAST_CELL_BASED_ALL_CELLS]",
             "type": "File",
-            "id": "step8_contrast_cell_based_all_cells",
+            "id": "contrast_cell_based_all_cells",
             "description": "To perform cell-based DGE using all cells",
             "optional": true
         },
         {
             "name": "To perform cell-based DGE using cell type groups",
-            "command-line-flag": "--step8_contrast_cell_based_celltype_groups",
-            "value-key": "[STEP8_CONTRAST_CELL_BASED_CELLTYPE_GROUPS]",
+            "command-line-flag": "--contrast_cell_based_celltype_groups",
+            "value-key": "[CONTRAST_CELL_BASED_CELLTYPE_GROUPS]",
             "type": "File",
-            "id": "step8_contrast_cell_based_celltype_groups",
+            "id": "contrast_cell_based_celltype_groups",
             "description": "To perform cell-based DGE using cell type groups",
             "optional": true
         },
         {
             "name": "To perform sample-based DGE using all cells",
-            "command-line-flag": "--step8_contrast_sample_based_all_cells",
-            "value-key": "[STEP8_CONTRAST_SAMPLE_BASED_ALL_CELLS]",
+            "command-line-flag": "--contrast_sample_based_all_cells",
+            "value-key": "[CONTRAST_SAMPLE_BASED_ALL_CELLS]",
             "type": "File",
-            "id": "step8_contrast_sample_based_all_cells",
+            "id": "contrast_sample_based_all_cells",
             "description": "To perform sample-based DGE using all cells",
             "optional": true
         },
         {
             "name": "To perform sample-based DGE using all cells",
-            "command-line-flag": "--step8_contrast_sample_based_celltype_groups",
-            "value-key": "[STEP8_CONTRAST_SAMPLE_BASED_CELLTYPE_GROUPS]",
+            "command-line-flag": "--contrast_sample_based_celltype_groups",
+            "value-key": "[CONTRAST_SAMPLE_BASED_CELLTYPE_GROUPS]",
             "type": "File",
-            "id": "step8_contrast_sample_based_celltype_groups",
+            "id": "contrast_sample_based_celltype_groups",
             "description": "To perform sample-based DGE using all cells",
             "optional": true
         }
@@ -1312,17 +1291,10 @@
             "name": "Overall",
             "description": "Overall options",
             "members": [
-                "dir",
+                "working_dir",
                 "steps",
                 "method",
-                "msd",
-                "markergsea",
-                "knownmarkers",
-                "referenceannotation",
-                "annotate",
-                "addmeta",
-                "rundge",
-                "seulist"
+                "knownmarkers"
             ]
         },
         {
@@ -1463,7 +1435,8 @@
                 "par_FindNeighbors_prune_SNN",
                 "par_FindClusters_resolution",
                 "par_compute_ARI",
-                "par_RI_reps"
+                "par_RI_reps",
+                "msd"
             ]
         },
         {
@@ -1491,7 +1464,10 @@
                 "par_futureglobalsmaxSize",
                 "par_annotate_resolution",
                 "par_name_metadata",
-                "par_annotate_labels"
+                "par_annotate_labels",
+                "markergsea",
+                "referenceannotation",
+                "annotate"
             ]
         },
         {
@@ -1509,19 +1485,78 @@
                 "par_run_sample_based_all_cells",
                 "par_run_sample_based_celltype_groups",
                 "par_statistical_method",
-                "step8_contrast_cell_based_all_cells",
-                "step8_contrast_cell_based_celltype_groups",
-                "step8_contrast_sample_based_all_cells",
-                "step8_contrast_sample_based_celltype_groups"
+                "contrast_cell_based_all_cells",
+                "contrast_cell_based_celltype_groups",
+                "contrast_sample_based_all_cells",
+                "contrast_sample_based_celltype_groups",
+                "addmeta",
+                "rundge"
             ]
         }
     ],
     "custom": {
         "cbrain:author": "Natacha Beck <nbeck@mcin.ca>",
         "cbrain:integrator_modules": {
-            "BoutiquesPostProcessingCleaner": [
-                "[DIR]"
-            ]
+            "BoutiquesInputCopier": {
+                "working_dir":         { "checkbox_hidden": true }
+            },
+            "BoutiquesFileTypeVerifier": {
+                "working_dir":         ["ScrnaboxOutput"]
+            },
+            "BoutiquesOutputFileTypeSetter": {
+                "outdir": "ScrnaboxOutput"
+            },
+            "BoutiquesPostProcessingCleaner": ["[WORKING_DIR]"],
+            "BoutiquesScrnaboxResourceManager": {
+                "1": {
+                    "ram": 150,
+                    "walltime": 240
+                },
+                "2": {
+                    "ram": 16,
+                    "walltime": 40
+                },
+                "3": {
+                    "ram": 16,
+                    "walltime": 60
+                },
+                "4": {
+                    "ram": 45,
+                    "walltime": 40
+                },
+                "5": {
+                    "ram": 16,
+                    "walltime": 40
+                },
+                "6": {
+                    "ram": 16,
+                    "walltime": 50
+                },
+                "7_markergsea": {
+                    "ram": 16,
+                    "walltime": 50
+                },
+                "7_knownmarkers": {
+                    "ram": 16,
+                    "walltime": 50
+                },
+                "7_referenceannotation": {
+                    "ram": 150,
+                    "walltime": 90
+                },
+                "7_annotate": {
+                    "ram": 16,
+                    "walltime": 50
+                },
+                "8_addmeta": {
+                    "ram": 16,
+                    "walltime": 90
+                },
+                "8_rundge": {
+                    "ram": 40,
+                    "walltime": 90
+                }
+            }
         }
     }
 }
