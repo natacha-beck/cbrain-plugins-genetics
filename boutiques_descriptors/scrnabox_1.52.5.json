@@ -1078,7 +1078,7 @@
             "name": "Seurat RDS object to use as the reference",
             "command-line-flag": "--par_reference",
             "value-key": "[PAR_REFERENCE]",
-            "type": "String",
+            "type": "File",
             "id": "par_reference",
             "description": "Seurat RDS object to use as the reference",
             "optional": true
@@ -1510,7 +1510,7 @@
             "BoutiquesScrnaboxResourceManager": {
                 "1": {
                     "ram": 150,
-                    "walltime": 240
+                    "walltime": 360
                 },
                 "2": {
                     "ram": 16,
