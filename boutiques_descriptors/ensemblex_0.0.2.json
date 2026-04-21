@@ -1063,6 +1063,12 @@
         "cbrain:integrator_modules": {
             "BoutiquesResourceManager": {
                 "step": {
+                    "setup":
+                    {
+                        "cpu-cores":         1,
+                        "ram":               16,
+                        "walltime-estimate": "01:00:00"
+                    },
                     "demuxalot":
                     {
                         "cpu-cores":         6,
