@@ -1097,6 +1097,13 @@
                         "ram":               40,
                         "walltime-estimate": "2-4:00:00"
                     },
+		    "vireo-GT":
+		    {
+		        "cpu-cores":         6,
+                        "ram":               40,
+                        "walltime-estimate": "2-4:00:00"
+
+		    },
                     "souporcell":
                     {
                         "cpu-cores":         1,

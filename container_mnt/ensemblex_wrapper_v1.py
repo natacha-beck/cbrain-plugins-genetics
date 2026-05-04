@@ -323,6 +323,41 @@ def sort_vcf_files(args, file_io_ctx):
     run_command(launch_sort_reference_cmd, False)
     os.rename("reference_sorted.vcf", file_io_ctx.genotype_reference_input)
 
+def verify_step_completion(args, file_io_ctx):
+    '''Verifies the completion of the specified ensemblex step by checking for the existence of the expected output file.'''
+    step_output_files = {
+        "GT": {
+            "setup":      "input_files/reference.vcf",
+            "demuxalot":  "demuxalot/Demuxalot_result.csv",
+            "demuxlet":   "demuxlet/outs.best",
+            "souporcell": "souporcell/clusters.tsv",
+            "vireo":      "vireo_gt/donor_ids.tsv",
+            "ensembling": "ensemblex_gt/confidence/ensemblex_final_cell_assignment.csv"
+        },
+        "noGT": {
+            "setup":      "input_files/reference.vcf",
+            "demuxalot":  "demuxalot/Demuxalot_result.csv",
+            "freemuxlet": "freemuxlet/outs.clust1.samples*",
+            "vireo":      "vireo/donor_ids.tsv",
+            "souporcell": "souporcell/clusters.tsv",
+            "ensembling": "ensemblex/confidence/ensemblex_final_cell_assignment.csv"
+        }
+    }
+
+    expected_relative = step_output_files.get(args.method, {}).get(args.step)
+    if not expected_relative:
+        print_log(f"Error: No expected output file defined for method '{args.method}', step '{args.step}'.")
+        exit(1)
+
+    matches_expected_output_file = [file for file in glob.glob(os.path.join(file_io_ctx.working_dir, expected_relative)) if os.path.getsize(file) > 0]
+
+    if matches_expected_output_file:
+        expected_output_file = matches_expected_output_file[0]
+        print_log(f"Step '{args.step}' completed successfully. Output file: {expected_output_file}")
+    else:
+        print_log(f"Error: Expected output file for step '{args.step}' not found or empty: {expected_output_file}")
+        exit(1)
+
 
 def main():
     tool_name       = "ensemblex"
@@ -349,6 +384,7 @@ def main():
 
         files_preparation(args, file_io_ctx)
         sort_vcf_files(args, file_io_ctx)
+        verify_step_completion(args, file_io_ctx)
     else:
         if file_io_ctx.working_dir is None:
             print_log("Error: --working_dir must be specified for steps other than 'setup'.")
@@ -359,6 +395,10 @@ def main():
             overwrite_ensemblex_config(args, file_io_ctx, option_dict)
             launch_ensemblex_cmd = ["bash", os.path.expandvars("$ensemblex_HOME") + "/launch_ensemblex.sh", "-d", file_io_ctx.working_dir, "--step", args.step]
             run_command(launch_ensemblex_cmd, False)
+
+            verify_step_completion(args, file_io_ctx)
+
+
 
     # After running ensemblex, move the output files to the output directory specified by the user
     try:
