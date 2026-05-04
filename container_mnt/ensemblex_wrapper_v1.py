@@ -40,7 +40,7 @@ def handle_boolean_mixiture(args):
     args.PAR_ensemblex_preliminary_parameter_sweep              = handle_boolean(args.PAR_ensemblex_preliminary_parameter_sweep, 0)
     args.PAR_ensemblex_graph_based_doublet_detection            = handle_boolean(args.PAR_ensemblex_graph_based_doublet_detection, 0)
     args.PAR_ensemblex_preliminary_ensemble_independent_doublet = handle_boolean(args.PAR_ensemblex_preliminary_ensemble_independent_doublet, 0)
-    args.PAR_ensemblex_independent_doublet                      = handle_boolean(args.PAR_ensemblex_independent_doublet, 0)
+    args.PAR_ensemblex_ensemble_independent_doublet                      = handle_boolean(args.PAR_ensemblex_ensemble_independent_doublet, 0)
     args.PAR_ensemblex_doublet_Demuxalot_threshold              = handle_boolean(args.PAR_ensemblex_doublet_Demuxalot_threshold, 0)
     args.PAR_ensemblex_doublet_Demuxalot_no_threshold           = handle_boolean(args.PAR_ensemblex_doublet_Demuxalot_no_threshold, 0)
     args.PAR_ensemblex_doublet_Demuxlet_threshold               = handle_boolean(args.PAR_ensemblex_doublet_Demuxlet_threshold, 0)
@@ -143,7 +143,7 @@ def parse_args_list():
 
     # Step 3 parameters: Ensemble-independent doublet detection
     parser.add_argument("--PAR_ensemblex_preliminary_ensemble_independent_doublet", action='store_true', help="Whether or not to perform a preliminary parameter sweep for Step 3: Ensemble-independent doublet detection.")
-    parser.add_argument("--PAR_ensemblex_independent_doublet", action='store_true', help="Whether or not to perform Step 3: Ensemble-independent doublet detection.")
+    parser.add_argument("--PAR_ensemblex_ensemble_independent_doublet", action='store_true', help="Whether or not to perform Step 3: Ensemble-independent doublet detection.")
     parser.add_argument("--PAR_ensemblex_doublet_Demuxalot_threshold", action='store_true', help="Whether or not to label doublets identified by Demuxalot as doublets.\nOnly doublets with assignment probabilities exceeding Demuxalot's recommended probability threshold will be labeled as doublets by ensemblex.")
     parser.add_argument("--PAR_ensemblex_doublet_Demuxalot_no_threshold", action='store_true', help="Whether or not to label doublets identified by Demuxalot as doublets, regardless of the corresponding assignment probability.")
     parser.add_argument("--PAR_ensemblex_doublet_Souporcell_threshold", action='store_true', help="Whether or not to label doublets identified by Souporcell as doublets.\nOnly doublets with assignment probabilities exceeding Souporcell's recommended probability threshold will be labeled as ensemblex.")
@@ -350,12 +350,11 @@ def verify_step_completion(args, file_io_ctx):
         exit(1)
 
     matches_expected_output_file = [file for file in glob.glob(os.path.join(file_io_ctx.working_dir, expected_relative)) if os.path.getsize(file) > 0]
-    expected_output_file = matches_expected_output_file[0]
-
     if matches_expected_output_file:
+        expected_output_file = matches_expected_output_file[0]
         print_log(f"Step '{args.step}' completed successfully. Output file: {expected_output_file}")
     else:
-        print_log(f"Error: Expected output file for step '{args.step}' not found or empty: {expected_output_file}")
+        print_log(f"Error: Expected output files for step '{args.step}' not found.")
         exit(1)
 
 
