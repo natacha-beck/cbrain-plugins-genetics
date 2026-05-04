@@ -331,7 +331,7 @@ def verify_step_completion(args, file_io_ctx):
             "demuxalot":  "demuxalot/Demuxalot_result.csv",
             "demuxlet":   "demuxlet/outs.best",
             "souporcell": "souporcell/clusters.tsv",
-            "vireo":      "vireo_gt/donor_ids.tsv",
+            "vireo-GT":   "vireo_gt/donor_ids.tsv",
             "ensembling": "ensemblex_gt/confidence/ensemblex_final_cell_assignment.csv"
         },
         "noGT": {
@@ -350,9 +350,9 @@ def verify_step_completion(args, file_io_ctx):
         exit(1)
 
     matches_expected_output_file = [file for file in glob.glob(os.path.join(file_io_ctx.working_dir, expected_relative)) if os.path.getsize(file) > 0]
+    expected_output_file = matches_expected_output_file[0]
 
     if matches_expected_output_file:
-        expected_output_file = matches_expected_output_file[0]
         print_log(f"Step '{args.step}' completed successfully. Output file: {expected_output_file}")
     else:
         print_log(f"Error: Expected output file for step '{args.step}' not found or empty: {expected_output_file}")
