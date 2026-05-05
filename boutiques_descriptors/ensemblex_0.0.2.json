@@ -33,7 +33,7 @@
             "type": "String",
             "id": "step",
             "description": "Step of the ensemblex pipeline to run",
-            "value-choices": ["setup", "demuxalot", "demuxlet", "freemuxlet", "vireo", "vireo-GT", "souporcell", "ensemblex"],
+            "value-choices": ["setup", "demuxalot", "demuxlet", "freemuxlet", "vireo", "vireo-GT", "souporcell", "ensemblexing"],
             "value-disables": {
                 "setup": [
                     "working_dir",
@@ -346,7 +346,7 @@
                     "PAR_ensemblex_doublet_Vireo_no_threshold",
                     "PAR_ensemblex_compute_singlet_confidence"
                 ],
-                "ensemblex": [
+                "ensemblexing": [
                     "gene_expression",
                     "gene_expression_bai",
                     "barcodes",
@@ -1110,7 +1110,7 @@
                         "ram":               30,
                         "walltime-estimate": "3-00:00:00"
                     },
-                    "ensemblex": {
+                    "ensemblexing": {
                         "cpu-cores":         1,
                         "ram":               10,
                         "walltime-estimate": "03:00:00"

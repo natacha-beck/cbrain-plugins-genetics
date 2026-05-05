@@ -68,7 +68,7 @@ def parse_args_list():
     ##############
     # Files args #
     ##############
-    parser.add_argument("--step",                 type=str,            help="Step of the ensemblex pipeline to execute (e.g., 'setup', 'demuxalot', 'freemuxlet', 'vireo', 'soupercell', 'ensembling').")
+    parser.add_argument("--step",                 type=str,            help="Step of the ensemblex pipeline to execute (e.g., 'setup', 'demuxalot', 'freemuxlet', 'vireo', 'soupercell', 'ensemblexing').")
     parser.add_argument("--gene_expression",      type=is_file,        help="Gene expression bam file of the pooled samples (e.g., 10X Genomics possorted_genome_bam.bam)")
     parser.add_argument("--gene_expression_bai",  type=is_file,        help="Gene expression bam index file of the pooled samples (e.g., 10X Genomics possorted_genome_bam.bam.bai)")
     parser.add_argument("--barcodes",             type=is_file,        help="Barcodes tsv file of the pooled cells (e.g., 10X Genomics barcodes.tsv)")
@@ -332,7 +332,7 @@ def verify_step_completion(args, file_io_ctx):
             "demuxlet":   "demuxlet/outs.best",
             "souporcell": "souporcell/clusters.tsv",
             "vireo-GT":   "vireo_gt/donor_ids.tsv",
-            "ensembling": "ensemblex_gt/confidence/ensemblex_final_cell_assignment.csv"
+            "ensemblexing": "ensemblex_gt/confidence/ensemblex_final_cell_assignment.csv"
         },
         "noGT": {
             "setup":      "input_files/reference.vcf",
@@ -340,7 +340,7 @@ def verify_step_completion(args, file_io_ctx):
             "freemuxlet": "freemuxlet/outs.clust1.samples*",
             "vireo":      "vireo/donor_ids.tsv",
             "souporcell": "souporcell/clusters.tsv",
-            "ensembling": "ensemblex/confidence/ensemblex_final_cell_assignment.csv"
+            "ensemblexing": "ensemblex/confidence/ensemblex_final_cell_assignment.csv"
         }
     }
 
